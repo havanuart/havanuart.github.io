@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>HavAnuArt | Art products</title>
+
+
+<style>
+
+html 
+{
+    background-color: white;    /* OLD #F6F5F5 CHANGED 11:02 16-06-2020; background color for the page */
+    margin:1.5% 1% 1.5% 1%; 
+    font-family:verdana; 
+   /* width: auto; */
+}
+
+select {
+    -webkit-appearance:    menulist;           /* webkit browsers, shows DOWN arrow  */
+    -moz-appearance:       menulist;           /* mozilla browsers, shows DOWN arrow */
+    appearance:            menulist;           /* modern browsers, shows DOWN arrow  */
+    -webkit-user-select:   none;
+    -moz-user-select:      none;
+    -webkit-padding-end:   20px;
+    -moz-padding-end:      20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start:    2px;
+    background-color: ivory; /* Fallback color if gradients are not supported */
+    background-image: url(../images/select-arrow.png), -webkit-linear-gradient(top, white, ivory); /* For Chrome and Safari */
+    background-image: url(../images/select-arrow.png), -moz-linear-gradient(top, white, ivory); /* For old Firefox (3.6 to 15) */
+    background-image: url(../images/select-arrow.png), -ms-linear-gradient(top, white, ivory); /* For pre-releases of Internet Explorer  10*/
+    background-image: url(../images/select-arrow.png), -o-linear-gradient(top, white, ivory); /* For old Opera (11.1 to 12.0) */
+    background-image: url(../images/select-arrow.png), linear-gradient(bottom, white, ivory); /* Standard syntax; must be last */
+    background-position: center right;
+    background-repeat: no-repeat;
+/*
+    background-color: mediumslateblue;  
+When you set none to appearance you are removing the arrow, default is menulist which SHOWS down arrow, button shows NO down arrow, 
+When you are setting 0 to border-radius, you are removing the border by default of the select.
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); 
+    background: rgba(0, 0, 0, 0.3);
+*/
+    margin: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 1px solid mediumslateblue;
+    border-radius: .25px;
+    color: mediumslateblue;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    font-size: 90%;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.page-center
+{
+    height: auto;
+    width: 50%;
+    margin-top: 10%;    /* 15:08 03-07-2020 CHANGED from 2% */
+    left: 26%;
+    position: relative; 
+    text-align: left;   
+    vertical-align: text-bottom;
+}
+
+.row 
+{
+
+    background-color: #fdf8f7;
+
+    /* 
+       ADDED 18:59 10-07-2020 
+    */ 
+    border-width: 5px;
+    border-style: solid;
+    border-image: 
+    linear-gradient(
+      to bottom, 
+      darkslateblue, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+
+/*  STOPPED 14:50 28-05-2020 
+    border: 1px solid #13133a; 
+*/
+    padding: 2%; /* gap between pic and border */
+    margin-bottom: 10%;    /* GAP between the repeated painting boxes */
+}
+
+.clearfix 
+{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center; /* left to center */
+    color: rosybrown;
+    text-align: center;
+    font-size: 120%;
+/*
+    position: relative;
+    2BDO - Changing height only increases box height, BUT Pic and ALL the Text comes in the center 2DO 2DO 2DO 2DO
+    height: 80%;
+*/
+}
+
+.clearfix:hover {
+  -ms-transform: scale(1.55); /* IE 9 */
+  -webkit-transform: scale(1.55); /* Safari 3-8 */
+  transform: scale(1.55); 
+}
+
+img                  /* ADDED 02:03 29-07-2020, for restricting image downloads */
+{    
+    pointer-events: none;
+}
+
+.imgcontainer 
+{
+    float: left;
+    margin-top: 2%;
+    margin-right: 10%;    /* MARGIN around the painting 
+    padding: 2%;
+    border: 1px solid slateblue;
+*/
+    color: brown;
+    vertical-align: middle;   
+    text-align: center;
+    font-weight: bold;
+
+}
+
+
+.picdesc
+{
+    left: 5%;
+    top: 10%;
+    color: firebrick;
+    text-align: center;
+    vertical-align: top; 
+}
+
+.para-text
+{  
+   position: relative;
+   right: -4px;
+   width: 100%;            /* 11:20 10-06-2020: KEEP 100%, CHANGING this will SHRINK right margin inside */
+  /* 
+   height: auto;
+*/
+   text-align: left; 
+   font-size: 100%;
+
+   border: red 2px solid;
+
+} 
+
+.para-text-details
+{
+   position: relative;
+   color: MediumVioletRed;
+   font-family: Apple Chancery, cursive;
+}
+
+.para-text-cat-by
+{   
+    position: relative;
+    font-size: 65%;
+}
+
+.para-text-blog-title
+{
+    position: relative;
+    font-size: 85%;
+    margin-top: 7%;
+}
+
+.para-text-blog-desc
+{
+    position: relative;
+    font-size: 95%;
+    margin-bottom: .75%;
+}
+
+.para-text-sign
+{   
+/*
+    position: relative;
+    bottom: 0;
+    right: -67%;
+    font-size: 65%;
+*/
+}
+
+.a-blog
+{ 
+    font-size: 110%;
+/*    color: #13133a; */
+    border-bottom:.1px normal #13133a; 
+}
+
+
+.a-cat
+{
+    color:#660000;
+    border-bottom:.1px normal #660000; 
+}
+
+
+.a-by
+{
+   color:#000033;
+    border-bottom:.1px normal #000033; 
+}
+
+.a-noborder
+{
+   color: #414141; /* COLOR FOR BAR MENU, Home.... */
+   font-family: verdana;
+   font-weight: normal;
+/* 
+#343434
+#414141
+#4d4d4d
+#5A5A5A
+#000033; 
+*/
+    text-decoration: none;
+}
+
+.left
+{
+    text-align: left;
+}
+
+.right
+{
+    text-align: right;
+}
+
+
+h2, h3
+{
+    color: RebeccaPurple;
+}
+
+.h3
+{
+    color: RebeccaPurple;
+}
+
+/*-------------------------------------------------------------------*/
+/*------------------------- PAGE HEADER------------------------------*/
+/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------*/
+
+.menu-box-container 
+{ 
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  left: 45%; 
+  top: -15%;
+  width: 42%;
+/*
+  border: 1px solid blue; 
+*/
+}
+
+.menu-box-container>div
+{
+  position: relative;
+  height: 2%;
+  padding: .35%;               /* width: auto; area of the box */
+  border-radius: 5px;
+  text-align: center;          /* keeps text inside box centered */
+  margin-right: 20%;           /* creates right gap between boxes */
+
+/* STOPPED 12:20 28-05-2020
+   border: 1px solid #13133a;    
+*/ 
+}
+
+.menu-box-style                /* ADDED 15:52 22-06-2020 */
+{ 
+   position: relative;
+   color: #e2a7f2; 
+   font-family: 'Rouge Script', cursive; 
+   font-size: 200%; 
+   font-weight: normal; 
+   line-height: 5%; 
+   margin: 0 0 50px; 
+   text-align: center; 
+   text-shadow: 2px 2px 4px #082b34; 
+}
+
+
+.drop-down-category
+{
+/*
+   left: 65%; 
+   top: 95%;
+   position: relative;
+*/
+   position: absolute;
+   left: 63%; 
+   top: 110%;
+   display: flex; 
+   flex-flow: row nowrap; 
+   justify-content: space-around;
+   font-weight: normal;
+}
+
+
+.drop-down-category>div
+{
+   position: relative;
+   margin-left: 4%;
+/*   border: 1px solid darkslateblue; */
+   border-color: darkslateblue transparent 
+}
+
+.org-ddm
+{
+   background-color: white;    /* OLD #EFEDED CHANGED 11:05 16-06-2020; background for page header and Hapslab logo, moto */
+   position: absolute;
+   top:0;
+   left:0; 
+   height: 75%;  /* OLD 9% CHANGED 11:47 16-06-2020; REDUCED THE HEIGHT OF TOP LOGO AREA FROM 6em */
+   width: 99.85%;
+}
+
+.org-NameMotoHeader
+{
+   position: relative;
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit browsers */
+   top: 0;              /* 30% CHANGED 17:36 10-06-2020 from 7%; Position inside org-ddm class, places Hapslab, Moto, Menu buttoms */ 
+   left: 0;
+   background-image:    url(havanuart-logo.jpg); 
+   background-repeat:   no-repeat;
+   background-position: 100% 0;
+   background-size: cover;
+
+   width: 99.99%;
+   height: 100%;
+
+/*
+   width: 99.85%;
+   border: 1px solid red; 
+   width: 100%;
+   height: 200%;
+   background-image:    url(havanuart-logo.jpg); 
+   background-repeat:   no-repeat;
+   background-image:    url("havanuart-logo-background.jpeg"), url("havanuart-logo.jpg"); 
+   background-repeat:   no-repeat, no-repeat;
+   background-position: cover, left;
+   width: 100%;
+   height: 200%;
+   background-position: contain, center;
+   text-decoration-style: solid;
+   vertical-align: middle;
+*/
+}
+
+.org-NameHeader a
+{
+   position: relative;
+   top: 10%;
+   left: 10%;                        /* 5% POSITION of top HEADER */
+   text-decoration: none;            /* STOPS underline        */
+   color: #855800;                   /* #6B4700; DarkGoldenRod; COLOR of top HEADER   */
+   font-family: Verdana;             /* Comic Sans, Florence, Verdana; */
+   font-weight: bold;
+   font-size: 250%;                  /* FONTSIZE of top HEADER Hapslab */
+   vertical-align: text-bottom;      /* ADDED  17:30 10-06-2020 */
+}
+
+.birds-border-top
+{
+   position: relative;
+   top: 3%;
+   left: 2%;  
+   width: 95%;                      /* ADDED 03:40 31-07-2020: SOLVED right exra margin PROBLEM, using border */
+}
+
+.birds-border-bottom
+{
+   position: relative;
+   margin-left: 4%;
+   top: -35%;   
+}
+
+.org-MotoHeader 
+{
+   position: relative;
+   left: 7%;             /* POSITION of top MOTO after HEADER */
+   color: #4a6f2c;       /* COLOR of top MOTO after HEADER Olive */
+   vertical-align: 0px;
+   font-family: Lucida;
+   font-weight: bold;
+   font-size: 175%;      /* FONTSIZE of top HEADER */
+}
+
+
+.org-NameMotoFooter
+{
+   position: relative;
+   left: 120%;
+   margin-top: 20%;
+   font-size: 50%;       /* FONTSIZE of bottom FOOTER - HEADER & MOTO */
+   text-align: center;
+}
+
+
+div span.org-NameFooter a
+{
+   position: relative;
+   top: 0;
+   left: 0;              /* POSITION of top HEADER */
+   text-decoration: none;
+   color: #855800;        /* #6B4700; DarkGoldenRod; COLOR of top HEADER   */
+   font-family: Verdana;  /* Comic Sans, Florence, Verdana; */
+   font-weight: bold;
+   font-size: 120%;       /* FONTSIZE of top HEADER */
+}
+
+
+div span.org-MotoFooter 
+{
+   position: relative;
+   left: 0;             /* POSITION of top MOTO after HEADER */
+   color: #4a6f2c;       /* COLOR of top MOTO after HEADER Olive */
+   vertical-align: 0px;
+   font-family: Lucida;
+   font-weight: bold;
+   font-size: 100%;      /* FONTSIZE of top HEADER */
+}
+
+.share-contactus
+{
+   font-size: 80%;
+}
+
+.micro-display
+{   
+   font-size: 8%;
+   margin-left: 0;
+   top: 15%;   
+}
+
+.micro-display-tm
+{
+   font-size: 40%;
+}
+
+.bottom-footer-design
+{
+   margin-top: 23.75%;
+   left: -4%;
+   width: 20%;
+   font-size: 50%;
+   position: relative;
+   float: right;
+   text-align: right;
+}
+
+
+/* 
+                            03:18 31-07-2020 USED FOR Designed text next to Ping details, twitter, Insta, 
+div span.org-NameFooter a
+{
+   position: relative;
+   top: 0;
+   left: 0;              /* POSITION of top HEADER */
+   text-decoration: none;
+   color: #855800;        /* #6B4700; DarkGoldenRod; COLOR of top HEADER   */
+   font-family: Verdana;  /* Comic Sans, Florence, Verdana; */
+   font-weight: bold;
+   font-size: 120%;       /* FONTSIZE of top HEADER */
+}
+
+
+div span.org-MotoFooter 
+{
+   position: relative;
+   left: 0;             /* POSITION of top MOTO after HEADER */
+   color: #4a6f2c;       /* COLOR of top MOTO after HEADER Olive */
+   vertical-align: 0px;
+   font-family: Lucida;
+   font-weight: bold;
+   font-size: 100%;      /* FONTSIZE of top HEADER */
+}
+
+.share-contactus
+{
+   font-size: 80%;
+}
+*/
+
+
+div a.org-url
+{
+   color:#6B4700; /* color used for www.hapslab.com 2014 & border */
+}
+
+
+#bottom-footer-id
+{
+                              /* DISPLAYS Careers, Contacts etc with Header and Moto (again) */
+   position: relative; 
+   width: 30%;                /* chengaed from 70% WIDTH of bottom-footer* */
+   height: 20%;
+   top: 60%;         /* MARGIN from top of #bottom-footer-id */
+   left: 0;                 /* LEFT distance from #bottom-footer-id, changed on 22:15 27-05-2020 from 12% */
+   float: center;
+   text-align: center;
+}
+
+
+.bottom-footer-links-class /* bottom footer */
+{
+   position: relative;
+   width: 50%;
+   top:0;
+   left: 22%;
+   float: right;
+   color: #414141;    /* #3E3E3E light grey color */ 
+   font-size: 60%;
+   font-weight:normal;
+/* 19:16 12-02-2019
+   padding-left: 4.5%;
+   margin-top: 0;
+*/
+}
+
+
+.bottom-footer-links-class li   /* bottom footer */
+{
+   display: inline;    /* displays a vertical list as horizontal list */ 
+   margin: 3px;
+}
+
+
+.bottom-footer-links-class span a  /* bottom footer */
+{
+   color: #414141;    /* #3E3E3E light grey color */ 
+}
+
+
+.bottom-footer-share-class /* bottom footer */
+{
+   position: relative;
+   float: right;
+   color: #414141;    /* #3E3E3E light grey color */ 
+   font-size: 80%;
+   font-weight:normal;
+   text-transform: capitalize;
+}
+
+
+.bottom-footer-share-class li /* NOT USED ANYMORE */
+{
+/*   display: inline;     displays a vertical list as horizontal list 
+margin: 4%;
+*/ 
+   
+}
+
+
+.bottom-footer-share-class span a  /* bottom footer */
+{
+   color: #414141;    /* #3E3E3E light grey color */ 
+}
+
+
+
+
+.inactive-link {
+   pointer-events: none;
+   cursor: default;
+}
+
+.rotate-right-up-big
+{
+    -ms-transform: rotate(340deg); /* IE 9 */
+  transform: rotate(340deg); 
+}
+
+.rotate-right-down-big
+{
+    -ms-transform: rotate(20deg); /* IE 9 */
+  transform: rotate(20deg); 
+}
+
+.rotate-right-down-big-big
+{
+    -ms-transform: rotate(30deg); /* IE 9 */
+  transform: rotate(30deg); 
+}
+
+.rotate-right-up
+{
+    -ms-transform: rotate(325deg); /* IE 9 */
+  transform: rotate(325deg); 
+}
+
+.rotate-right-down
+{
+    -ms-transform: rotate(325deg); /* IE 9 */
+  transform: rotate(325deg); 
+}
+
+.rotate-left-up
+{
+  -ms-transform: rotate(195deg); /* IE 9 */
+  transform: rotate(195deg);
+}
+
+.rotate-left-down
+{
+  -ms-transform: rotate(165deg); /* IE 9 */
+  transform: rotate(165deg);
+}
+
+.right-rotate-fish-small {
+  width: 40px;
+  height: 40px;
+  background-color: none;
+  position: relative;
+  animation-name: direction-right;
+  animation-duration: 4s;
+  animation-delay: .05s;
+  animation-iteration-count: 10;
+}
+
+.left-rotate-fish-small {
+  width: 40px;
+  height: 40px;
+  background-color: none;
+  position: relative;
+  animation-name: direction-left;
+  animation-duration: 4s;
+  animation-delay: .05s;
+  animation-iteration-count: 10;
+}
+
+.right-rotate-fish {
+  width: 40px;
+  height: 40px;
+  background-color: none;
+  position: relative;
+  animation-name: direction-right;
+  animation-duration: 4s;
+  animation-delay: .05s;
+  animation-iteration-count: 10;
+}
+
+.left-rotate-fish {
+  width: 39px;
+  height: 39px;
+  background-color: none;
+  position: relative;
+  animation-name: direction-left;
+  animation-duration: 4s;
+  animation-delay: .05s;
+  animation-iteration-count: 10;
+}
+
+.right-rotate-hippo {
+  width: 40px;
+  height: 40px;
+  background-color: none;
+  position: relative;
+  animation-name: direction-right;
+  animation-duration: 4s;
+  animation-delay: .05s;
+  animation-iteration-count: 10;
+    -ms-transform: rotate(345deg); /* IE 9 */
+  transform: rotate(345deg);
+}
+
+.left-rotate-hippo {
+  width: 45px;
+  height: 45px;
+  background-color: none;
+  position: relative;
+  animation-name: direction-left;
+  animation-duration: 4s;
+  animation-delay: .05s;
+  animation-iteration-count: 10;
+}
+
+
+@keyframes direction-right {
+  0%   {background-color:none; left:0px; top:0px;}
+  25%  {background-color:none; left:5px; top:0px;}
+  50%  {background-color:none; left:5px; top:5px;}
+  75%  {background-color:none; left:0px; top:5px;}
+  100% {background-color:none; left:0px; top:0px;}
+}
+
+@keyframes direction-left {
+  0%   {background-color:none; left:5px; top:0px;}
+  25%  {background-color:none; left:5px; top:5px;}
+  50%  {background-color:none; left:0px; top:5px;}
+  75%  {background-color:none; left:0px; top:0px;}
+  100% {background-color:none; left:5px; top:0px;}
+}
+
+
+
+.go-down {
+  width: 45px;
+  height: 45px;
+  background-color: none;
+  position: relative;
+  animation-name: direction-down;
+  animation-duration: 4s;
+  animation-delay: .05s;
+  animation-iteration-count: 10;
+}
+
+
+
+@keyframes direction-down {
+  0%   {background-color:none; left:0px; top:0px;}
+  10%  {background-color:none; left:4px; top:4px;}
+  20%  {background-color:none; left:8px; top:8px;}
+  30%  {background-color:none; left:12px; top:12px;}
+  40%  {background-color:none; left:16px; top:16px;}
+  50%  {background-color:none; left:20px; top:20px;}
+  60%  {background-color:none; left:24px; top:24px;}
+  70%  {background-color:none; left:28px; top:28px;}
+  80%  {background-color:none; left:32px; top:32px;}
+  90%  {background-color:none; left:36px; top:36px;}
+  100% {background-color:none; left:40px; top:40px;}
+}
+
+.go-up {
+  width: 25px;
+  height: 25px;
+  background-color: none;
+  position: relative;
+  animation-name: direction-up;
+  animation-duration: 4s;
+  animation-delay: .05s;
+  animation-iteration-count: 10;
+}
+
+@keyframes direction-up {
+0%   {background-color:none; left: 0px; top: 200px;}
+1%   {background-color:none; left: 2px; top: 198px;}
+2%   {background-color:none; left: 4px; top: 196px;}
+3%   {background-color:none; left: 6px; top: 194px;}
+4%   {background-color:none; left: 8px; top: 192px;}
+5%   {background-color:none; left: 10px; top: 190px;}
+6%   {background-color:none; left: 12px; top: 188px;}
+7%   {background-color:none; left: 14px; top: 186px;}
+8%   {background-color:none; left: 16px; top: 184px;}
+9%   {background-color:none; left: 18px; top: 182px;}
+10%   {background-color:none; left: 20px; top: 180px;}
+11%   {background-color:none; left: 22px; top: 178px;}
+12%   {background-color:none; left: 24px; top: 176px;}
+13%   {background-color:none; left: 26px; top: 174px;}
+14%   {background-color:none; left: 28px; top: 172px;}
+15%   {background-color:none; left: 30px; top: 170px;}
+16%   {background-color:none; left: 32px; top: 168px;}
+17%   {background-color:none; left: 34px; top: 166px;}
+18%   {background-color:none; left: 36px; top: 164px;}
+19%   {background-color:none; left: 38px; top: 162px;}
+20%   {background-color:none; left: 40px; top: 160px;}
+21%   {background-color:none; left: 42px; top: 158px;}
+22%   {background-color:none; left: 44px; top: 156px;}
+23%   {background-color:none; left: 46px; top: 154px;}
+24%   {background-color:none; left: 48px; top: 152px;}
+25%   {background-color:none; left: 50px; top: 150px;}
+26%   {background-color:none; left: 52px; top: 148px;}
+27%   {background-color:none; left: 54px; top: 146px;}
+28%   {background-color:none; left: 56px; top: 144px;}
+29%   {background-color:none; left: 58px; top: 142px;}
+30%   {background-color:none; left: 60px; top: 140px;}
+31%   {background-color:none; left: 62px; top: 138px;}
+32%   {background-color:none; left: 64px; top: 136px;}
+33%   {background-color:none; left: 66px; top: 134px;}
+34%   {background-color:none; left: 68px; top: 132px;}
+35%   {background-color:none; left: 70px; top: 130px;}
+36%   {background-color:none; left: 72px; top: 128px;}
+37%   {background-color:none; left: 74px; top: 126px;}
+38%   {background-color:none; left: 76px; top: 124px;}
+39%   {background-color:none; left: 78px; top: 122px;}
+40%   {background-color:none; left: 80px; top: 120px;}
+41%   {background-color:none; left: 82px; top: 118px;}
+42%   {background-color:none; left: 84px; top: 116px;}
+43%   {background-color:none; left: 86px; top: 114px;}
+44%   {background-color:none; left: 88px; top: 112px;}
+45%   {background-color:none; left: 90px; top: 110px;}
+46%   {background-color:none; left: 92px; top: 108px;}
+47%   {background-color:none; left: 94px; top: 106px;}
+48%   {background-color:none; left: 96px; top: 104px;}
+49%   {background-color:none; left: 98px; top: 102px;}
+50%   {background-color:none; left: 100px; top: 100px;}
+51%   {background-color:none; left: 102px; top: 98px;}
+52%   {background-color:none; left: 104px; top: 96px;}
+53%   {background-color:none; left: 106px; top: 94px;}
+54%   {background-color:none; left: 108px; top: 92px;}
+55%   {background-color:none; left: 110px; top: 90px;}
+56%   {background-color:none; left: 112px; top: 88px;}
+57%   {background-color:none; left: 114px; top: 86px;}
+58%   {background-color:none; left: 116px; top: 84px;}
+59%   {background-color:none; left: 118px; top: 82px;}
+60%   {background-color:none; left: 120px; top: 80px;}
+61%   {background-color:none; left: 122px; top: 78px;}
+62%   {background-color:none; left: 124px; top: 76px;}
+63%   {background-color:none; left: 126px; top: 74px;}
+64%   {background-color:none; left: 128px; top: 72px;}
+65%   {background-color:none; left: 130px; top: 70px;}
+66%   {background-color:none; left: 132px; top: 68px;}
+67%   {background-color:none; left: 134px; top: 66px;}
+68%   {background-color:none; left: 136px; top: 64px;}
+69%   {background-color:none; left: 138px; top: 62px;}
+70%   {background-color:none; left: 140px; top: 60px;}
+71%   {background-color:none; left: 142px; top: 58px;}
+72%   {background-color:none; left: 144px; top: 56px;}
+73%   {background-color:none; left: 146px; top: 54px;}
+74%   {background-color:none; left: 148px; top: 52px;}
+75%   {background-color:none; left: 150px; top: 50px;}
+76%   {background-color:none; left: 152px; top: 48px;}
+77%   {background-color:none; left: 154px; top: 46px;}
+78%   {background-color:none; left: 156px; top: 44px;}
+79%   {background-color:none; left: 158px; top: 42px;}
+80%   {background-color:none; left: 160px; top: 40px;}
+81%   {background-color:none; left: 162px; top: 38px;}
+82%   {background-color:none; left: 164px; top: 36px;}
+83%   {background-color:none; left: 166px; top: 34px;}
+84%   {background-color:none; left: 168px; top: 32px;}
+85%   {background-color:none; left: 170px; top: 30px;}
+86%   {background-color:none; left: 172px; top: 28px;}
+87%   {background-color:none; left: 174px; top: 26px;}
+88%   {background-color:none; left: 176px; top: 24px;}
+89%   {background-color:none; left: 178px; top: 22px;}
+90%   {background-color:none; left: 180px; top: 20px;}
+91%   {background-color:none; left: 182px; top: 18px;}
+92%   {background-color:none; left: 184px; top: 16px;}
+93%   {background-color:none; left: 186px; top: 14px;}
+94%   {background-color:none; left: 188px; top: 12px;}
+95%   {background-color:none; left: 190px; top: 10px;}
+96%   {background-color:none; left: 192px; top: 8px;}
+97%   {background-color:none; left: 194px; top: 6px;}
+98%   {background-color:none; left: 196px; top: 4px;}
+99%   {background-color:none; left: 198px; top: 2px;}
+100%   {background-color:none; left: 200px; top: 0px;}
+}
+
+/*
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+*/
+
+                                  /*                   CSS for ha-pix.html                  */
+                                  /*                   CSS for ha-pix.html                  */
+                                  /*                   CSS for ha-pix.html                  */
+
+* { box-sizing: border-box; }
+
+img                  /* ADDED 02:03 29-07-2020, for restricting image downloads */
+{    
+    pointer-events: none;
+}
+
+.pixheader 
+{
+  text-align: center;
+  padding: 32px;
+  color: #a66a6a;
+  font-weight: bold;
+}
+
+.splborder {
+  border-top: 3px solid rosybrown;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(transparent));
+  background-image: -webkit-linear-gradient(#000, transparent);
+  background-image:
+      -moz-linear-gradient(#000, transparent),
+      -moz-linear-gradient(#000, transparent);
+  background-image:
+      -o-linear-gradient(#000, transparent),
+      -o-linear-gradient(#000, transparent);
+  background-image: 
+      linear-gradient(#000, transparent),
+      linear-gradient(#000, transparent);
+  -moz-background-size: 3px 100%;
+  background-size: 3px 100%;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat; 
+}
+
+.pixrow 
+{
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0 1%;             /* COLUMN space between pictures */
+  max-width: 50%;            /* Makes pictures right sized in the gallery */ 
+  height: 100vh;
+
+                             /* ADDs margin to keep the gallery in center of page, rosybrown */
+  margin-left: 25%;     
+  margin-right: 10%; 
+  padding-left: 5%;
+  padding-right: 5%;
+                             /* FAT border on right and left of the Gallery */
+  border-width: 30px;
+  border-style: solid;
+  border-image:
+    linear-gradient(
+      to bottom, 
+      #d9c0c0, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+}
+
+                             /* Create four equal columns that sits next to each other */
+.pixcol 
+{
+  flex: 20%;
+  max-width: 20%;
+  padding: 0 1%;             /* COLUMN space between pictures */
+}
+
+.pixcolimg 
+{
+  margin-top: 6%;            /* ROW space between pictures */
+  vertical-align: middle;
+}
+
+                             /* Responsive layout - makes a two column-layout */
+@media (max-width: 800px) 
+{
+  .pixcol {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+                            /* Responsive layout - makes the two columns stack on top of each other */
+@media (max-width: 600px) 
+{
+  .pixcol {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+                                  /*                   CSS for ha-blogs.html                  */
+                                  /*                   CSS for ha-blogs.html                  */
+                                  /*                   CSS for ha-blogs.html                  */
+
+.wipborder {
+  border-top: 3px solid rosybrown;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(transparent));
+  background-image: -webkit-linear-gradient(#000, transparent);
+  background-image:
+      -moz-linear-gradient(#000, transparent),
+      -moz-linear-gradient(#000, transparent);
+  background-image:
+      -o-linear-gradient(#000, transparent),
+      -o-linear-gradient(#000, transparent);
+  background-image: 
+      linear-gradient(#000, transparent),
+      linear-gradient(#000, transparent);
+  -moz-background-size: 3px 100%;
+  background-size: 3px 100%;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat; 
+}
+
+
+.bakground {
+  left: 35%;
+  width: 40%;
+  height: 5%;
+  color: rosybrown;  /* original color */
+  animation-name: bakgd, texts, fonts;
+  animation-duration: 21s;
+  padding: 5% 0;
+  text-align: center;
+  box-shadow: 10px 10px 8px 10px honeydew;
+  font-size: 180%;
+  font-weight: bold;
+/*
+  border: 5px solid rosybrown;
+  border-radius: 10%;
+*/
+}
+
+.textcolor { 
+  animation-name: texts;
+  animation-duration: 21s;
+}
+
+@keyframes bakgd {
+  0%   {background-color: lightcyan;}
+  10%  {background-color: aquamarine;}
+  20%  {background-color: lightseagreen;}
+  30%  {background-color: darkcyan;}
+  40%  {background-color: darkblue;}
+  50%  {background-color: mediumblue;}
+  60%  {background-color: darkslateblue;}
+  70%  {background-color: royalblue;}  
+  80%  {background-color:deepbluesky;}
+  90%  {background-color: mediumslateblue;}
+  100% {background-color: powderblue;}
+}
+
+@keyframes texts {
+  0%   {color: purple;}
+  10%  {color: mediumvioletred;}
+  20%  {color: crimson;}
+  30%  {color: mediumorchid;}
+  40%  {color: palevioletred;}
+  50%  {color: lightpink;}
+  60%  {color: papayawhip;}
+  70%  {color: seashell;}  
+  80%  {color: hotpink;}
+  90%  {color: deeppink;}
+  100% {color: darkmagenta;}
+}
+
+@keyframes fonts {
+ 0%   {font-size: 180%;}
+ 5%   {font-size: 162%;}
+ 10%   {font-size: 144%;}
+ 15%   {font-size: 126%;}
+ 20%   {font-size: 108%;}
+ 25%   {font-size: 90%;}
+ 30%   {font-size: 72%;}
+ 35%   {font-size: 54%;}
+ 40%   {font-size: 36%;}
+ 45%   {font-size: 18%;}
+ 50%   {font-size: 0%;}
+ 55%   {font-size: 18%;}
+ 60%   {font-size: 36%;}
+ 65%   {font-size: 54%;}
+ 70%   {font-size: 72%;}
+ 75%   {font-size: 90%;}
+ 80%   {font-size: 108%;}
+ 85%   {font-size: 126%;}
+ 90%   {font-size: 144%;}
+ 95%   {font-size: 162%;}
+ 100%   {font-size: 180%;}
+}
+
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<script>
+/*************************************************** JQuery / JavaScript code ***************************************************/
+/*************************************************** JQuery / JavaScript code ***************************************************/
+/*************************************************** JQuery / JavaScript code ***************************************************/
+/*************************************************** JQuery / JavaScript code ***************************************************/
+/**
+ * Get array of ALL the indexes of sub strings (subStr here) in a multi string (origStr here)
+ * @param  {string} sub strings (subStr here)
+ * @param  {string} multi string (origStr here)
+ * @return [numbers], array of numbers
+ */
+function prepareParaIndexesArray(origStr, subStr)
+{
+         var Indexes = [], index = -1;
+         while ((index = origStr.indexOf(subStr, index + 1)) != -1)
+         {
+               Indexes.push(index);
+         }
+         return Indexes;
+}
+
+
+/**
+ * Get the number of chacters remaining after an index of a line of size PARALINESIZE
+ * @param  {number} index on the line
+ * @return {number} number of characters remaining on the line after index
+ */
+function remainingCharsOnLineArray(paraIndexesArray)
+{
+         var remainingCharsArray = [];
+         for (const remainIndex of paraIndexesArray)
+         {
+             remainingCharsArray.push(PARALINESIZE - (remainIndex % PARALINESIZE));
+         }
+         return remainingCharsArray;
+}
+
+
+const PICTEXTAREASIZE = 1322;   // 1322 Limit for number of characters in the Picture Text Area
+const PARALINESIZE = 53;
+
+var picInteration=0;
+var picIDX=0;
+var picText="";
+var currPicSliderID=null;
+var prevPicSliderID=null;
+           // PREVIOUS PICTURE SLIDER CIRCLE color: old #F6F5F5
+var prevPicSliderColor = null;
+
+           // CURRENT PICTURE SLIDER CIRCLE color: old #B8860B
+var currPicSliderColor = null;
+
+
+var picJSONFileLine=0;
+/**
+ * Driver function for Picture Text Display, Calls other asscociated functions
+ * @param  none
+ * @return none
+ */
+function hopePixStartOld()
+{
+
+// alert(showPictureJSONArray[picIDX].name);
+// window.alert(remainTextLen);
+// pstr="hello this is the start of hello this is the start of " = 57, 1322
+// 25 lines in a picture text area
+// 53 char each line 
+// total chars in a picture text area = 25 * 53 = 1325.
+
+
+         picJSONFileLine++;
+         var picURL      = "url(" + showPictureJSONArray[picIDX].namewmd + ")";
+         document.getElementById("display-picture-id").style.backgroundImage = picURL;
+         var tempText    = showPictureJSONArray[picIDX].desc;
+         var origText    = tempText.trim();
+         var picTextDesc = "";
+         var picTextAreaSize = 0;
+         var prev_picTextAreaSize = 0;
+var temp_picTextAreaSize = 0;
+         var curr_picTextAreaSize = 0;
+         var loop_picTextAreaSize = 0;
+         var ADJUST = 0;
+         var paraIndexesArray = prepareParaIndexesArray(origText, 'p>');
+         if ( paraIndexesArray.length % 2 != 0 )
+         {
+            window.alert("ERROR: p HTML tags are not even numbered.");
+         }
+
+/*
+         var remainingCharsArray = remainingCharsOnLineArray(paraIndexesArray);
+         var LoopIndex = 0;
+         var modLoopIndex = 0
+         while ( LoopIndex < paraIndexesArray.length )
+         {
+               modLoopIndex = LoopIndex%2 ;
+               if ( LoopIndex === 0 )
+               {
+                   curr_picTextAreaSize = curr_picTextAreaSize + (paraIndexesArray[LoopIndex]-1) + ( paraIndexesArray[LoopIndex+1] - paraIndexesArray[LoopIndex] ) + remainingCharsArray[LoopIndex] + PARALINESIZE;
+               }
+               else
+               {
+                   if ( LoopIndex+1 === paraIndexesArray.length )
+                   {
+                      curr_picTextAreaSize = curr_picTextAreaSize + ( PICTEXTAREASIZE - paraIndexesArray[LoopIndex] ) + remainingCharsArray[LoopIndex] + PARALINESIZE;
+                   }
+                   else
+                   {
+                      curr_picTextAreaSize = curr_picTextAreaSize + ( paraIndexesArray[LoopIndex+1] - paraIndexesArray[LoopIndex] ) + remainingCharsArray[LoopIndex] + PARALINESIZE;
+                   }
+               }
+
+               if  ( curr_picTextAreaSize > PICTEXTAREASIZE )
+               {
+                   if ( LoopIndex%3 === 0 )
+                   {
+                      ADJUST = 1;
+                   }
+                   else
+                   {
+                      ADJUST = 0;
+                   }
+
+                   loop_picTextAreaSize = PICTEXTAREASIZE - ( PARALINESIZE * (LoopIndex + 1) ) - remainingCharsArray[LoopIndex] - (ADJUST*7);
+                   break;
+               }
+
+               temp_picTextAreaSize = curr_picTextAreaSize;
+               prev_picTextAreaSize = curr_picTextAreaSize;
+
+         LoopIndex++;
+         }
+
+         if ( (paraIndexesArray[0] > PICTEXTAREASIZE) || (paraIndexesArray.length === 0) )
+         {
+            loop_picTextAreaSize = PICTEXTAREASIZE;
+         } 
+         LoopIndex = 0;
+*/
+  
+/*
+
+// DEBUG in break statement see only one iteration       
+// window.alert("picIDX : Loop : modLoop: " + picIDX + " : " + LoopIndex + " : " + modLoopIndex + " : " + paraIndexesArray + " || " + remainingCharsArray + " || " + prev_picTextAreaSize + " || " + curr_picTextAreaSize + " || " + loop_picTextAreaSize );
+// DEBUG in while loop see ALL interations
+//             window.alert("picIDX : Loop : modLoop: " + picIDX + " : " + LoopIndex + " : " + modLoopIndex + " : " + paraIndexesArray + " || " + remainingCharsArray + " || " + temp_picTextAreaSize + " || " + curr_picTextAreaSize + " || " + loop_picTextAreaSize );
+
+             var prev = Math.min.apply(Math, pointsArray)      - prev here gets max value
+             if (curr=Math.max.apply(Math, pointsArray) < 100) - curr here gets true or false
+
+               HOW TO DECIDE right logic for: 
+               1. <p> was in the begining,    : Decide on while loop
+               2. <p> tag was in between,     : Decide on while loop
+               3. first <p> was at the end,   : if paraIndexesArray[paraIndexesArray.length - paraIndexesArray.length] > PICTEXTAREASIZE (1322)
+                                                picTextAreaSize = PICTEXTAREASIZE
+               4. <p> tag NOT PRESENT         : if paraIndexesArray.length === 0 use picTextAreaSize = PICTEXTAREASIZE
+
+            STOPPED 09:21 02-06-2020
+           var tempTextDesc = origText.slice (0, loop_picTextAreaSize);
+
+ STOPPED on 20:48 29-05-2020, used to verify the end of picture text para.
+           picTextDesc      = tempTextDesc.concat (':HOPE');
+*/
+
+           picTextDesc      = origText;
+           document.getElementById("display-picture-text").innerHTML = picTextDesc;
+
+           paraIndexesArray = [];
+           remainingCharsArray = [];
+
+           var currIDX = picIDX + 1;
+           currPicSliderID = "displayPictureSlider" + currIDX;
+
+           // PREVIOUS PICTURE SLIDER CIRCLE color: old #F6F5F5
+           prevPicSliderColor = "#F6F5F5";
+
+           // CURRENT PICTURE SLIDER CIRCLE color: old #B8860B
+           currPicSliderColor = "#1709f6";
+
+           if (picIDX === (showPictureJSONArray.length-1)) 
+           { 
+
+              document.getElementById(prevPicSliderID).style.backgroundColor=prevPicSliderColor;
+              document.getElementById(currPicSliderID).style.backgroundColor=currPicSliderColor;
+
+              prevPicSliderID = currPicSliderID;
+              picIDX = 0; 
+           }
+           else 
+           { 
+               if (picIDX === 0)
+               {
+                  if (picInteration === 0)
+                  {
+                     document.getElementById(currPicSliderID).style.backgroundColor=currPicSliderColor;
+                  }
+                  else
+                  {
+                     document.getElementById(prevPicSliderID).style.backgroundColor=prevPicSliderColor;
+                     document.getElementById(currPicSliderID).style.backgroundColor=currPicSliderColor;
+                  }
+
+               }
+               else
+               {
+                  document.getElementById(prevPicSliderID).style.backgroundColor=prevPicSliderColor;
+                  document.getElementById(currPicSliderID).style.backgroundColor=currPicSliderColor;
+               }         
+               prevPicSliderID = currPicSliderID;
+               picIDX++; 
+           }
+
+           picInteration++;
+}  
+
+function getCategory(picCatArray)
+{
+         var idx;
+         var arrCat = [];
+         for (idx=0; idx < picCatArray.length; idx++)
+         {
+             arrCat.push(picCatArray[idx].category);
+         }
+         return arrCat;
+}
+
+function getSubCategory(picCatArray, catidx)
+{
+         var idx;
+         var arrSubCat = [];
+         var pcidx = parseInt(catidx);
+/*
+         window.alert(catidx + ", " + picCatArray[pcidx].subcategory.length);
+*/
+         for (idx=0; idx < picCatArray[pcidx].subcategory.length; idx++)
+         {
+             arrSubCat.push(picCatArray[pcidx].subcategory[idx]);
+         }
+         return arrSubCat;
+}
+
+function getSet(value, index, self) 
+{ 
+    return self.indexOf(value) === index;
+}
+
+function ReadshowPictureJSONFile(picArray)
+{
+// ReadshowPictureJSONFile is the name of JSON object in file showPicture.js
+// The typeof operator, when used on an array, returns object.
+
+         if (isanArray(picArray))
+         {
+             showPictureJSONArray = picArray;
+//             showPictureJSONArray = picArray.sort();
+         }
+         else
+         {
+            window.alert("ERROR: Not an array");
+         }
+
+// alert(showPictureJSONArray.length);
+}
+
+
+function isanArray(objectArray) {
+//  The typeof operator, when used on an array, returns object.
+
+         if (typeof(objectArray) === 'object')
+         {
+            return true;
+         }
+         else
+         {
+            return false;
+         }
+}
+
+
+function ReadPicCatSubcatJSONFile(PicCatSubcatArray)
+{
+// ReadPicCatSubcatJSONFile is the name of JSON object in file showPicture.js
+// The typeof operator, when used on an array, returns object.
+
+         if (isanArray(PicCatSubcatArray))
+         {
+            showCatSubcatJSONArray = PicCatSubcatArray;
+//            showCatSubcatJSONArray = PicCatSubcatArray.sort();
+         }
+         else
+         {
+            window.alert("ERROR: Not an array");
+         }
+}
+
+
+function ReadPicSubcatIdxJSONFile(PicCatSubcatIdxArray)
+{
+// ReadPicSubcatIdxJSONFile is the name of JSON object in file showPicture.js
+// The typeof operator, when used on an array, returns object.
+
+         if (isanArray(PicCatSubcatIdxArray))
+         {
+            showCatSubcatIdxJSONArray = PicCatSubcatIdxArray;
+//            showCatSubcatIdxJSONArray = PicCatSubcatIdxArray.sort();
+         }
+         else
+         {
+            window.alert("ERROR: Not an array");
+         }
+}
+
+
+var PICCATEGORY    = [];
+var PICSUBCATEGORY = [];
+var CURRPICCATEGORY = "";
+var CURRPICSUBCATEGORY = "";
+var CURRPICCATEGORYSUBCATEGORYARRAY = [];
+
+function hopePixStart() 
+{
+         var l_picIDX, imgclass, output=""; 
+         var l_Cat, l_Subcat, l_catSame, l_subcatSame;
+         var picArrayLen = showPictureJSONArray.length;
+         
+         PICCATEGORY = getCategory(showCatSubcatJSONArray);
+         PICSUBCATEGORY = getSubCategory(showCatSubcatJSONArray, "0");
+
+         RUNloadSelectedPix(PICCATEGORY[0], PICSUBCATEGORY[0]);
+}
+
+        function initDropDownCategory() 
+        {
+                 /*
+                    Returns initial Category list, PICCATEGORY for the drop down menu while loading
+                 */
+                 var x = document.getElementById("dropdowncat");
+                 var i;
+                 for (i=0; i<PICCATEGORY.length; i++)
+                 {    
+                      var option = document.createElement("option");
+                      option.text = PICCATEGORY[i];
+                      x.add(option);
+                 }
+        }
+
+        function initDropDownSubCategory() 
+        {
+                 /*
+                    Returns initial Sub-Category list, PICSUBCATEGORY for the drop down menu while loading
+                 */
+                 var x = document.getElementById("dropdownsubcat");
+                 var i;
+                 for (i=0; i<PICSUBCATEGORY.length; i++)
+                 {    var option = document.createElement("option");
+                      option.text = PICSUBCATEGORY[i];
+                      x.add(option);
+                 }
+        } 
+
+        var CURRPICCATEGORYIDX="";
+        function returnCategory() 
+        {     
+                 /*
+                    Returns current or selected Category from the drop down menu
+                 */
+                 selectElement = document.querySelector('#dropdowncat'); 
+                 CURRPICCATEGORY = selectElement.value; 
+                 var CURRPICCATEGORYIDX = document.getElementById("dropdowncat").selectedIndex;
+                 PICSUBCATEGORY = getSubCategory(showCatSubcatJSONArray, CURRPICCATEGORYIDX);
+
+                 /*
+                    Remove ALL Sub-Categories from the drop down menu
+                 */
+                 var y = document.getElementById("dropdownsubcat");
+                 var j, len = y.options.length;
+                 for (j=len-1; j>=0; j--)
+                 {
+                       y.options[j] = null;
+                 }
+
+                 /*
+                    Populates ALL Sub-Categories from the drop down menu for selected Category
+                 */
+                 var x = document.getElementById("dropdownsubcat");
+                 var i;
+                 var option = document.createElement("option");
+                 option.text = "     ";
+                 x.add(option);
+                 for (i=0; i<PICSUBCATEGORY.length; i++)
+                 {    
+                      var option = document.createElement("option");
+                      option.text = PICSUBCATEGORY[i];
+                      x.add(option);
+                 }
+        }
+
+        function returnSubCategory() 
+        {     
+                 /*
+                    Returns current or selected Sub-Category from the drop down menu
+                 */
+
+                 selectElement = document.querySelector('#dropdownsubcat'); 
+                 CURRPICSUBCATEGORY = selectElement.value; 
+                 // window.alert("returnSubCategory(): " + CURRPICCATEGORY + ":: " + CURRPICSUBCATEGORY);
+
+                 /*
+                    Before calling RUNloadSelectedPix() for selected Category and Sub-Category from the drop down menu
+                    Remove current html tag elements from class: clearfix looping over CURRPICCATEGORYSUBCATEGORYARRAY.
+                    CURRPICCATEGORYSUBCATEGORYARRAY is array of pictures from ha-showPicture.js file
+                 */
+                 /*
+                  * Remove tag code here
+                  *
+                  */
+                 var ll_picIDX;
+                 var cscArrLen = CURRPICCATEGORYSUBCATEGORYARRAY.length;
+                 for (ll_picIDX = 0; ll_picIDX < cscArrLen; ll_picIDX++)
+                 {
+                      var allTags = document.getElementsByClassName("clearfix","row")[ll_picIDX];
+                      while (allTags.hasChildNodes()) 
+                      {  
+                           allTags.removeChild(allTags.firstChild);
+                      } 
+                 }
+                 // window.alert("Remaining ELE AFT 11: :::: " + CURRPICCATEGORYSUBCATEGORYARRAY.length + ":::: " + CURRPICCATEGORYSUBCATEGORYARRAY);
+
+// FAILED                 var rootTagsd = document.getElementsByClassName("page-center").querySelectorAll(".clearfix");
+// gave 0                 var rootTagsd = document.getElementById("clearfixid").querySelectorAll("div, img, p");
+// FAILED                 var rootTagsd = document.getElementsByClassName("page-center").querySelectorAll("div");
+// WORKED gave 12         var rootTagsd = document.getElementsByClassName("page-center")[0].querySelectorAll("div");
+
+                 var ll_picIDXd;
+                 var rootTagsd = document.getElementsByClassName("page-center")[0].querySelectorAll("div");
+                 var rootTagsdLen = rootTagsd.length;
+                 // window.alert("Remaining ELE AFT 21: :::: " + rootTagsdLen + ":::: " + rootTagsd);
+                 for (ll_picIDXd = 0; ll_picIDXd < rootTagsdLen; ll_picIDXd++)
+                 {
+                      rootTagsd[ll_picIDXd].remove(); 
+                 }
+
+                 var ll_picIDXr;
+                 var rootTagsr = document.getElementsByClassName("page-center")[0].querySelectorAll("div");
+                 var rootTagsrLen = rootTagsr.length;
+                 // window.alert("Remaining ELE AFT 22: :::: " + rootTagsrLen + ":::: " + rootTagsr);
+
+
+                 var mlen = document.getElementsByClassName("page-center")[0].length;
+         // window.alert("B4 Calling: RUN LSP: " + CURRPICCATEGORYSUBCATEGORYARRAY + ", " + mlen);
+         RUNloadSelectedPix(CURRPICCATEGORY, CURRPICSUBCATEGORY); 
+
+         }
+
+function RUNloadSelectedPix(dd_Cat, dd_Subcat)
+{
+         CURRPICCATEGORYSUBCATEGORYARRAY.splice(0, CURRPICCATEGORYSUBCATEGORYARRAY.length);
+         // window.alert("AFTER NULL SUBCATARR in RUN LSP: " + CURRPICCATEGORYSUBCATEGORYARRAY);
+         // CURRPICCATEGORYSUBCATEGORYARRAY = null;
+         var picCatSubcatIdxArrayLen = showCatSubcatIdxJSONArray.length;
+         var rl_picIDX;
+
+//         for (l_picIDX < picCatSubcatIdxArrayLen)
+         for (rl_picIDX = 0; rl_picIDX < picCatSubcatIdxArrayLen; rl_picIDX++)
+         {
+              l_Cat      = showCatSubcatIdxJSONArray[rl_picIDX].category;
+              l_Subcat   = showCatSubcatIdxJSONArray[rl_picIDX].subcategory;
+
+              if ( (l_Cat === dd_Cat) && (l_Subcat === dd_Subcat) ) 
+              {
+                CURRPICCATEGORYSUBCATEGORYARRAY = showCatSubcatIdxJSONArray[rl_picIDX].picarray;
+                // window.alert(" B4R BREAK Calling: LSP: " + CURRPICCATEGORYSUBCATEGORYARRAY);
+                break;
+              }
+         }
+         // window.alert("AFT BREAK Calling: LSP: " + CURRPICCATEGORYSUBCATEGORYARRAY);
+         loadSelectedPix(CURRPICCATEGORYSUBCATEGORYARRAY);
+}
+
+function loadSelectedPix(l_picarray)
+{
+// window.alert("LSP IN1: " + l_picarray  );
+/*
+window.alert("LSP IN1: " + l_picarray + ", " + typeof(l_picarray) );
+         for (l_picIDX = 0; l_picIDX < picArrayLen; l_picIDX++)
+         var selPixArray = ["1","3","4","9"];
+      for (l_picIDX = 0; l_picIDX in l_picarray; l_picIDX++)
+*/
+
+
+         var ls_picIDX;
+         var loopIdx = 0;    // Used to add images with a continuous index array
+         for (ls_picIDX of l_picarray)
+         {
+
+            var ls_picIDX = parseInt(ls_picIDX);
+//            window.alert("LSP IN2: " + ls_picIDX + ", " + loopIdx );
+
+             var clearfixDiv = document.createElement('div');
+             clearfixDiv.id = "clearfixid";
+             var clearfixClass = document.createAttribute("class");
+             clearfixClass.value = "clearfix";
+             var rowClass = document.createAttribute("class");
+             rowClass.value = "row";
+             clearfixDiv.classList.add("clearfix", "row");
+             var pname   = showPictureJSONArray[ls_picIDX].namewmd;
+             var pwidth  = showPictureJSONArray[ls_picIDX].width;
+             var pheight = showPictureJSONArray[ls_picIDX].height;
+             var ptitle  = showPictureJSONArray[ls_picIDX].title;
+             var pdesc   = showPictureJSONArray[ls_picIDX].desc;
+             var poutput = ls_picIDX + ". " + pname + ", " + pwidth + ", " + pheight + ".<br><br>" + ptitle + ".";
+             clearfixDiv.innerHTML = poutput;
+//             clearfixDiv.style.backgroundColor = "ivory";
+             document.getElementsByClassName("page-center")[0].appendChild(clearfixDiv); 
+// 
+		var imgContainerDiv = document.createElement('img');
+		var imgContainerClass = document.createAttribute("class");
+		imgContainerClass.value = "imgcontainer";
+		imgContainerDiv.classList.add("imgcontainer");
+		imgContainerDiv.setAttribute("src",    pname);
+		imgContainerDiv.setAttribute("width",  pwidth);
+		imgContainerDiv.setAttribute("height", pheight);
+		imgContainerDiv.setAttribute("alt",    ptitle);
+		document.getElementsByClassName("clearfix")[loopIdx].appendChild(imgContainerDiv);
+
+		var para = document.createElement('p');
+		var paraClass = document.createAttribute("class");
+		paraClass.value = "picdesc";
+		para.classList.add("picdesc");
+                var node = document.createTextNode(pdesc);
+                para.appendChild(node);
+		document.getElementsByClassName("clearfix")[loopIdx].appendChild(para); 
+// 
+             loopIdx = loopIdx + 1;
+         }
+
+}
+
+
+</script>
+
+<script src="hashowPicture.js"></script> 
+<script src="haPicCatSubcat.js"></script>
+<script src="haPicSubcatIdx.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</head>
+
+<body onload="hopePixStart(); initDropDownCategory(); initDropDownSubCategory();">
+
+
+
+<!--                                       PAGE HEADER                                         -->
+<!--                                       PAGE HEADER                                         -->
+<!--                                       PAGE HEADER                                         -->
+<!--                                       PAGE HEADER                                         -->
+
+<div class="org-ddm" >
+
+   <div class="org-NameMotoHeader">
+
+<div class="birds-border-top">
+
+<!--                                       START OF FIRST LINE OF BIRDS                                         -->
+<!--                                       START OF FIRST LINE OF BIRDS                                         -->
+<!--                                       START OF FIRST LINE OF BIRDS                                         -->
+<!--                                       START OF FIRST LINE OF BIRDS                                         -->
+
+<i class='right-rotate-hippo fas fa-dove' style='font-size:36px; color:#eca2aa;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+<i class='fas fa-dove' style='font-size:18px; color:#44d7a8;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-dove' style='font-size:36px; color:#eca2aa;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-down fas fa-fish' style='font-size:24px; color:#BBB477;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+<i class='fas fa-dove' style='font-size:18px; color:#44d7a8;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-down-big-big fas fa-fish' style='font-size:24px; color:slategrey;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='left-rotate-hippo fas fa-dove' style='font-size:36px; color:#eca2aa;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+<i class='fas fa-dove' style='font-size:18px; color:#44d7a8;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-down-big fas fa-fish' style='font-size:24px; color:#BBB477;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i class="right-rotate-fish-small fas fa-fish" style="font-size:32px; color:aqua;"></i>
+<i class="left-rotate-fish-small rotate-left-down fas fa-fish" style="font-size:32px; color:slategray;">   </i>
+
+
+
+<!--                                       START OF SECOND LINE OF BIRDS                                         -->
+<!--                                       START OF SECOND LINE OF BIRDS                                         -->
+<!--                                       START OF SECOND LINE OF BIRDS                                         -->
+<!--                                       START OF SECOND LINE OF BIRDS                                         -->
+
+
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-fish' style='font-size:48px; color:#cdcd00;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-dove' style='font-size:24px; color:#b580ff;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='left-rotate-hippo rotate-right-down fas fa-fish' style='font-size:48px; color:lightgreen;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-dove' style='font-size:24px; color:#b580ff;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-fish' style='font-size:48px; color:#b8c0c8;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-dove' style='font-size:24px; color:#b580ff;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-down-big fas fa-fish' style='font-size:48px; color:sandybrown;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-dove' style='font-size:24px; color:#b580ff;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-up fas fa-fish' style='font-size:48px; color:lightgreen;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-fish' style='font-size:36px; color:sandybrown;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+<i class='rotate-right-down-big fas fa-dove' style='font-size:48px; color:#9accff;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-down-big-big fas fa-fish' style='font-size:36px; color:aqua;'></i>
+
+
+<!--                                       START OF THIRD LINE OF BIRDS                                         -->
+<!--                                       START OF THIRD LINE OF BIRDS                                         -->
+<!--                                       START OF THIRD LINE OF BIRDS                                         -->
+<!--                                       START OF THIRD LINE OF BIRDS                                         -->
+
+
+<br>
+&nbsp;&nbsp;
+<i class='rotate-right-down-big fas fa-dove' style='font-size:48px; color:#9accff;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
+&nbsp;&nbsp;&nbsp;
+<i class='fas fa-fish' style='font-size:32px; color:aqua;'></i>
+&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-down-big-big fas fa-dove' style='font-size:48px; color:#eca2aa;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+<i class='right-rotate-hippo fas fa-dove' style='font-size:48px; color:#9accff;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-up fas fa-fish' style='font-size:36px; color:aqua;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-down-big fas fa-fish' style='font-size:36px; color:#cdcd00;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+<i class='rotate-right-down-big-big fas fa-dove' style='font-size:48px; color:#eca2aa;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
+
+</div>    <!-- END of div class birds-border-top -->
+
+
+<div style="position: absolute; top: 25%; left: 2%; ">
+  <div style="position: relative;" >
+       <i class="right-rotate-fish rotate-right-up fas fa-fish" style="font-size:36px; color:#cdcd00;"></i>
+       <i class="left-rotate-fish rotate-left-up fas fa-fish" style="font-size:36px; color:sandybrown;">   </i>
+  <br><br>
+  </div>
+
+  <div style="position: relative;" >
+  <br><br><br>
+       <i class="right-rotate-fish rotate-right-up fas fa-dove" style="font-size:48px; color:white"></i>
+       <i class="left-rotate-fish fa-flip-horizontal fas fa-dove" style="font-size:36px; color:white;"></i>
+  </div>
+
+  <div style="position: relative;" >
+       <br>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <i class="right-rotate-fish fas fa-dragon" style="font-size:24px; color:white;"></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <i class="left-rotate-fish fa-flip-horizontal fas fa-dragon" style="font-size:32px; color:#db4545;"></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <i class="right-rotate-fish rotate-right-up fas fa-dove" style="font-size:36px; color:#eca2aa;"></i>
+       <i class="left-rotate-fish fa-flip-horizontal fas fa-dove" style="font-size:48px; color:white;"></i>
+       &nbsp;&nbsp;&nbsp;
+       <i class='rotate-right-up fas fa-dove' style='font-size:24px; color:white'></i>
+       &nbsp;&nbsp;
+            <i class="right-rotate-hippo fas fa-dragon" style="font-size:24px; color:#db4545;"></i>
+            <i class="left-rotate-hippo fa-flip-horizontal fas fa-dragon" style="font-size:48px; color:#db4545;"></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <i class='fas fa-dove' style='font-size:36px; color:white'></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <i class="left-rotate-fish fa-flip-horizontal fas fa-dove" style="font-size:48px; color:white;"></i>
+       &nbsp;&nbsp;&nbsp;
+       <i class="right-rotate-hippo fas fa-dragon" style="font-size:32px; color:#db4545;"></i>
+       <i class="left-rotate-hippo fas fa-hippo fa-flip-horizontal" style="font-size:36px; color:seagreen;"></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <i class='fas fa-dove' style='font-size:24px; color:white'></i>
+
+       <br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <i class='rotate-right-up-big-big fas fa-dove' style='font-size:48px; color:#eca2aa;'></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <i class='rotate-right-up-big fas fa-dove' style='font-size:24px; color:white'></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <i class='rotate-right-up-big-big fas fa-dove' style='font-size:36px; color:#9accff;'></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <i class="right-rotate-hippo fas fa-hippo" style="font-size:32px; color:seagreen"></i>
+       <i class="left-rotate-hippo fas fa-hippo fa-flip-horizontal" style="font-size:36px; color:#cdcd00"></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <i class='fas fa-dove' style='font-size:36px; color:white'></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <i class="rotate-left-down right-rotate-hippo fas fa-hippo" style="font-size:32px; color:seagreen"></i>
+       &nbsp;&nbsp;&nbsp;
+       <i class='fas fa-dove' style='font-size:36px; color:white'></i>
+  </div>
+</div>
+
+
+<div style="position: absolute; top: 25%; left:55%; ">
+<div class="position1" style="position: relative;">
+       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i><br><br>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;
+       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i><br><br>
+       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i><br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i>
+</div>
+</div>
+
+
+
+</div>    <!-- END of div class="org-NameMotoHeader" -->
+
+
+  <div class="menu-box-container">
+      <div><a class="a-noborder menu-mr menu-box-style fas fa-home fa-fw"   href="index.html"     title="">&nbsp;Home</a></div>    
+      <div><a class="a-noborder menu-mr menu-box-style fas fa-book fa-fw"   href="ha-blogs.html"  title="">&nbsp;Blogs</a></div>
+      <div><a class="a-noborder menu-mr menu-box-style fas fa-images fa-fw" href="ha-pix.html"    title="">&nbsp;Gallery</a></div>
+      <div><a class="a-noborder menu-box-style fas fa-wifi"                 href="#bottom-footer-design" title="">&nbsp;Ping</a></div>
+  </div>
+
+<!--                                       PAGE CENTER                                         -->
+<!--                                       PAGE CENTER                                         -->
+<!--                                       PAGE CENTER                                         -->
+<!--                                       PAGE CENTER                                         -->
+
+
+<div class="drop-down-category">
+     <div >
+          <form>
+                 <select id="dropdowncat" size="1" onchange="returnCategory()">
+                 </select>
+          </form>
+          
+     </div>
+ 
+     <div>
+          <form>          
+                 <select id="dropdownsubcat" size="1" onchange="returnSubCategory();">
+                 </select>
+          </form>
+          
+     </div>
+</div>
+
+
+<div class="page-center">
+
+</div>              <!-- END div class="page-center"      -->
+
+<!--                                       FOOTER                                         -->
+<!--                                       FOOTER                                         -->
+<!--                                       FOOTER                                         -->
+<!--                                       FOOTER                                         -->
+
+
+<div id="bottom-footer-id">
+
+     <div class="org-NameMotoFooter" style="position:relative;">
+          <img src="havanuart-logo.jpg" width="420" height="140" alt="HavAnuArt">
+          <div style="position:relative;">
+               <a href="https://instagram.com/havanuart"><img src="instagram-logo.jpg" alt="Havanuart@Instagram" style="width:42px;height:42px;margin-right:2%;"></a> 
+               <a href="https://twitter.com/havanuart"><img src="twitter-logo.jpg" alt="Havanuart@Twitter" style="width:42px;height:42px;"></a>
+                    <!--
+                    <span class="share-contactus" style="margin-left: 40%;">Designed by </span>
+                    <span class="org-NameFooter"><a href="https://www.hapslab.com">Hapslab<sup class="micro-display">&copy;</sup></a></span>
+                    <span class="org-MotoFooter">Data products play<sup class="micro-display-tm">&trade;</sup></span> 
+                    -->
+          </div>
+
+     </div>
+
+<!--
+              <div style="position:relative; margin-left: 20%;">
+     <div class="bottom-footer-links-class">
+
+         <span><a href="/us/corporate/careers/index.html" data-lbl="careers" title="Careers">Careers</a></span>
+         <span class="share-contactus"><a href="/us/corporate/contact/index.html" data-lbl="contact us" title="Contact Us">Contact Us</a></span>
+         <span class="share-facebook"><a href="/us/social-media/facebook/index.html" data-lbl="facebook" title="Follow Hapslab on Facebook">Facebook</a></span>
+         <span class="share-linkedin"><a href="/us/social-media/linkedin/index.html" data-lbl="linkedIn" title="Follow Hapslab on LinkedIn">LinkedIn</a></span>
+         <span class="share-twitter"><a href="/us/social-media/twitter/index.html" data-lbl="twitter" title="Follow Hapslab on Twitter">Twitter</a></span>
+         <span class="share-googlep"><a href="https://plus.google.com/u/0/115607918987921226255" data-lbl="google plus" target="_blank" title="Follo Hapslab on Google+">Google+</a></span>
+         <span class="share-youtube"><a href="http://www.youtube.com/oracle/" data-lbl="youtube" target="_blank" title="Watch Hapslab on YouTube">YouTube</a></span>
+         <span class="share-youtube"><a href="http://www.youtube.com/oracle/" data-lbl="instagram" target="_blank" title="Follo Hapslab on Instagram">Instagram</a></span>
+         <span><a href="/us/legal/privacy/overview/index.html" data-lbl="mobile" title="Mobile">Mobile</a></span>
+         <span><a href="/us/sitemaps/index.html" data-lbl="site maps" title="Site Maps">Site Maps</a></span>
+         <span><a href="/us/legal/privacy/overview/index.html" data-lbl="legal notices" title="Legal Notices">Legal Notices</a></span>
+         <span><a href="/us/legal/terms/index.html" data-lbl="terms of use" title="Terms Of Use">Terms Of Use</a></span>
+         <span><a href="/us/legal/privacy/overview/index.html" data-lbl="privacy rights" title="Privacy Rights">Privacy</a></span>
+
+     </div>
+-->
+
+</div>               <!-- END div class="bottom-footer-id"  -->
+
+
+<!-- ADDED 02:51 31-07-2020 for future -->
+<div class="bottom-footer-design" id="bottom-footer-design">
+     <span class="share-contactus" style="margin-left: 40%;">Designed by </span>
+     <span class="org-NameFooter"><a href="www.hapslab.com">Hapslab<sup class="micro-display">&copy;</sup></a></span>
+     <span class="org-MotoFooter">Data products play<sup class="micro-display-tm">&trade;</sup></span> 
+</div>
+
+
+
+</div>               <!--     END div class="org-ddm"       -->
+
+
+</body>
+</html>
