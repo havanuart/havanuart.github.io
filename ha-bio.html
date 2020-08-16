@@ -77,10 +77,15 @@ When you are setting 0 to border-radius, you are removing the border by default 
 {
 
     background-color: #fdf8f7;
+    background-size: cover;
+    padding: 2% 4% 2% 4%;      /* Gap between Pic and Border */
+                               /* margin-left: 50%; Large margin can decrease the row, clearfix div size */
+    margin-bottom: 10%;        /* GAP between the repeated painting boxes */
 
-    /* 
-       ADDED 18:59 10-07-2020 
-    */ 
+/* 
+   ADDED 18:59 10-07-2020 
+   STOPPED 21:42 04-08-2020
+     
     border-width: 5px;
     border-style: solid;
     border-image: 
@@ -89,12 +94,10 @@ When you are setting 0 to border-radius, you are removing the border by default 
       darkslateblue, 
       rgba(0, 0, 0, 0)
     ) 1 100%;
-
+*/
 /*  STOPPED 14:50 28-05-2020 
     border: 1px solid #13133a; 
 */
-    padding: 2%; /* gap between pic and border */
-    margin-bottom: 10%;    /* GAP between the repeated painting boxes */
 }
 
 .clearfix 
@@ -104,8 +107,8 @@ When you are setting 0 to border-radius, you are removing the border by default 
     justify-content: space-around;
     align-items: center; /* left to center */
     color: rosybrown;
-    text-align: center;
-    font-size: 120%;
+    text-align: left;
+    font-size: 1.2vw;
 /*
     position: relative;
     2BDO - Changing height only increases box height, BUT Pic and ALL the Text comes in the center 2DO 2DO 2DO 2DO
@@ -128,7 +131,10 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
 {
     float: left;
     margin-top: 2%;
-    margin-right: 10%;    /* MARGIN around the painting 
+    margin-right: 10%;    
+
+/*
+ MARGIN around the painting 
     padding: 2%;
     border: 1px solid slateblue;
 */
@@ -136,7 +142,8 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
     vertical-align: middle;   
     text-align: center;
     font-weight: bold;
-
+    max-width: 100%;
+    height: auto;
 }
 
 
@@ -147,6 +154,7 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
     color: firebrick;
     text-align: center;
     vertical-align: top; 
+    font-size: 1.2vw;
 }
 
 .para-text
@@ -265,12 +273,13 @@ h2, h3
 
 .menu-box-container 
 { 
-  position: relative;
+  position: fixed;
+  z-index: 525;
   display: flex;
   flex-flow: row nowrap;
-  left: 45%; 
-  top: -15%;
-  width: 42%;
+  left: 35%; /* old 45% */
+  top: 2%;
+  width: 45%;
 /*
   border: 1px solid blue; 
 */
@@ -292,32 +301,41 @@ h2, h3
 
 .menu-box-style                /* ADDED 15:52 22-06-2020 */
 { 
+/* 
+   margin: 0 0 50px; 
+   text-shadow: 2px 2px 4px #082b34; 
+*/
    position: relative;
    color: #e2a7f2; 
    font-family: 'Rouge Script', cursive; 
-   font-size: 200%; 
-   font-weight: normal; 
+   font-size: 2.1vw; 
+   font-weight: bold; 
    line-height: 5%; 
-   margin: 0 0 50px; 
+   margin: 0 0 5%; 
    text-align: center; 
    text-shadow: 2px 2px 4px #082b34; 
 }
 
+.menu-box-bio
+{
+margin-left: -12%; display: flex; flex-flow: row;text-shadow: 2px 2px 4px #082b34; font-family: 'Rouge Script', cursive; font-size: 2.1vw; font-weight: bold; color: #e2a7f2;
+}
 
 .drop-down-category
 {
 /*
    left: 65%; 
    top: 95%;
-   position: relative;
+   position: absolute;
 */
    position: absolute;
-   left: 63%; 
-   top: 110%;
+   left: 61%; 
+   top: 90%;
    display: flex; 
    flex-flow: row nowrap; 
    justify-content: space-around;
    font-weight: normal;
+   font-size: 1.2vw;
 }
 
 
@@ -344,31 +362,26 @@ h2, h3
    position: relative;
   -moz-user-select: none; /* mozilla browsers */
   -khtml-user-select: none; /* webkit browsers */
-   top: 0;              /* 30% CHANGED 17:36 10-06-2020 from 7%; Position inside org-ddm class, places Hapslab, Moto, Menu buttoms */ 
-   left: 0;
+  /* 30% CHANGED 17:36 10-06-2020 from 7%; Position inside org-ddm class, places Hapslab, Moto, Menu buttoms
+  left: 0;
+  top: 0; 
+  */
+
+
    background-image:    url(havanuart-logo.jpg); 
    background-repeat:   no-repeat;
    background-position: 100% 0;
-   background-size: cover;
+   background-size: contain; /* contain cover orig */
 
-   width: 99.99%;
+   max-width: 100%;
    height: 100%;
 
 /*
+   width: 99.99%;
+   height: 100%;
+
    width: 99.85%;
    border: 1px solid red; 
-   width: 100%;
-   height: 200%;
-   background-image:    url(havanuart-logo.jpg); 
-   background-repeat:   no-repeat;
-   background-image:    url("havanuart-logo-background.jpeg"), url("havanuart-logo.jpg"); 
-   background-repeat:   no-repeat, no-repeat;
-   background-position: cover, left;
-   width: 100%;
-   height: 200%;
-   background-position: contain, center;
-   text-decoration-style: solid;
-   vertical-align: middle;
 */
 }
 
@@ -412,15 +425,69 @@ h2, h3
 }
 
 
-.org-NameMotoFooter
+#bottom-footer-id
 {
-   position: relative;
-   left: 120%;
-   margin-top: 20%;
-   font-size: 50%;       /* FONTSIZE of bottom FOOTER - HEADER & MOTO */
+                              /* DISPLAYS Careers, Contacts etc with Header and Moto (again) */
+   position: relative; 
+   width: 30%;                /* chengaed from 70% WIDTH of bottom-footer* */
+   height: 20%;
+   top: 60%;         /* MARGIN from top of #bottom-footer-id */
+   left: 0;                 /* LEFT distance from #bottom-footer-id, changed on 22:15 27-05-2020 from 12% */
+   float: center;
    text-align: center;
 }
 
+
+.org-NameMotoFooter
+{
+   position: relative;
+   float: center;
+   text-align: center;
+   vertical-align: middle;
+   padding: .5% .25% .1% .25%;
+   left: 33%;              /* changed from 130% with #bottom-footer-id */
+   margin-top: 20%;
+   font-size: .75vw;       /* FONTSIZE of bottom FOOTER - HEADER & MOTO */
+   width: 30%;
+   height: auto;
+   pointer-events: auto;   /* allows mouse clicks */
+}
+
+.org-NameMotoFooter-img
+{
+   position:relative; 
+   max-width:55%; 
+   height: auto;
+/*
+   margin-right:5%;  -    NOT to be USED WITH flex, but justify-content: space-between; 
+*/
+}
+
+.org-NameMotoFooter-contactus
+{
+   position:relative; 
+   display:flex; 
+   justify-content: space-between; 
+/*
+   flex-flow:row;     -    NOT USED NOW due to required margin via justify-content: space-between; 
+*/
+}
+
+.bottom-footer-design
+{
+   position: relative;
+   margin-top: 23.75%;
+   left: -20%;
+   width: 40%;
+   font-size: 1.1vw;
+   float: right;
+}
+
+
+div span.org-DesignFooter
+{
+   font-size: .60vw;
+}
 
 div span.org-NameFooter a
 {
@@ -431,7 +498,7 @@ div span.org-NameFooter a
    color: #855800;        /* #6B4700; DarkGoldenRod; COLOR of top HEADER   */
    font-family: Verdana;  /* Comic Sans, Florence, Verdana; */
    font-weight: bold;
-   font-size: 120%;       /* FONTSIZE of top HEADER */
+   font-size: .80vw;       /* FONTSIZE of top HEADER */
 }
 
 
@@ -443,12 +510,7 @@ div span.org-MotoFooter
    vertical-align: 0px;
    font-family: Lucida;
    font-weight: bold;
-   font-size: 100%;      /* FONTSIZE of top HEADER */
-}
-
-.share-contactus
-{
-   font-size: 80%;
+   font-size: .75vw;      /* FONTSIZE of top HEADER */
 }
 
 .micro-display
@@ -462,18 +524,6 @@ div span.org-MotoFooter
 {
    font-size: 40%;
 }
-
-.bottom-footer-design
-{
-   margin-top: 23.75%;
-   left: -4%;
-   width: 20%;
-   font-size: 50%;
-   position: relative;
-   float: right;
-   text-align: right;
-}
-
 
 /* 
                             03:18 31-07-2020 USED FOR Designed text next to Ping details, twitter, Insta, 
@@ -511,19 +561,6 @@ div span.org-MotoFooter
 div a.org-url
 {
    color:#6B4700; /* color used for www.hapslab.com 2014 & border */
-}
-
-
-#bottom-footer-id
-{
-                              /* DISPLAYS Careers, Contacts etc with Header and Moto (again) */
-   position: relative; 
-   width: 30%;                /* chengaed from 70% WIDTH of bottom-footer* */
-   height: 20%;
-   top: 60%;         /* MARGIN from top of #bottom-footer-id */
-   left: 0;                 /* LEFT distance from #bottom-footer-id, changed on 22:15 27-05-2020 from 12% */
-   float: center;
-   text-align: center;
 }
 
 
@@ -633,8 +670,8 @@ margin: 4%;
 }
 
 .right-rotate-fish-small {
-  width: 40px;
-  height: 40px;
+  width: 4.2vw;
+  height: 4.2vw;
   background-color: none;
   position: relative;
   animation-name: direction-right;
@@ -644,8 +681,8 @@ margin: 4%;
 }
 
 .left-rotate-fish-small {
-  width: 40px;
-  height: 40px;
+  width: 4.2vw;
+  height: 4.2vw;
   background-color: none;
   position: relative;
   animation-name: direction-left;
@@ -655,8 +692,8 @@ margin: 4%;
 }
 
 .right-rotate-fish {
-  width: 40px;
-  height: 40px;
+  width: 4.2vw;
+  height: 4.2vw;
   background-color: none;
   position: relative;
   animation-name: direction-right;
@@ -666,8 +703,8 @@ margin: 4%;
 }
 
 .left-rotate-fish {
-  width: 39px;
-  height: 39px;
+  width: 4.2vw;
+  height: 4.2vw;
   background-color: none;
   position: relative;
   animation-name: direction-left;
@@ -677,8 +714,8 @@ margin: 4%;
 }
 
 .right-rotate-hippo {
-  width: 40px;
-  height: 40px;
+  width: 4.2vw;
+  height: 4.2vw;
   background-color: none;
   position: relative;
   animation-name: direction-right;
@@ -690,8 +727,8 @@ margin: 4%;
 }
 
 .left-rotate-hippo {
-  width: 45px;
-  height: 45px;
+  width: 4.8vw;
+  height: 4.8vw;
   background-color: none;
   position: relative;
   animation-name: direction-left;
@@ -720,8 +757,8 @@ margin: 4%;
 
 
 .go-down {
-  width: 45px;
-  height: 45px;
+  width: 5.04vw;
+  height: 5.04vw;
   background-color: none;
   position: relative;
   animation-name: direction-down;
@@ -733,22 +770,22 @@ margin: 4%;
 
 
 @keyframes direction-down {
-  0%   {background-color:none; left:0px; top:0px;}
-  10%  {background-color:none; left:4px; top:4px;}
-  20%  {background-color:none; left:8px; top:8px;}
-  30%  {background-color:none; left:12px; top:12px;}
-  40%  {background-color:none; left:16px; top:16px;}
-  50%  {background-color:none; left:20px; top:20px;}
-  60%  {background-color:none; left:24px; top:24px;}
-  70%  {background-color:none; left:28px; top:28px;}
-  80%  {background-color:none; left:32px; top:32px;}
-  90%  {background-color:none; left:36px; top:36px;}
-  100% {background-color:none; left:40px; top:40px;}
+ 0%   {background-color:none; left: 0.0vw; top: 0.0vw;}
+ 10%   {background-color:none; left: 0.08vw; top: 0.08vw;}
+ 20%   {background-color:none; left: 0.17vw; top: 0.17vw;}
+ 30%   {background-color:none; left: 0.25vw; top: 0.25vw;}
+ 40%   {background-color:none; left: 0.34vw; top: 0.34vw;}
+ 50%   {background-color:none; left: 0.42vw; top: 0.42vw;}
+ 60%   {background-color:none; left: 0.5vw; top: 0.5vw;}
+ 70%   {background-color:none; left: 0.59vw; top: 0.59vw;}
+ 80%   {background-color:none; left: 0.67vw; top: 0.67vw;}
+ 90%   {background-color:none; left: 0.76vw; top: 0.76vw;}
+ 100%   {background-color:none; left: 0.84vw; top: 0.84vw;}
 }
 
 .go-up {
-  width: 25px;
-  height: 25px;
+  width: 2vw;
+  height: 2vw;
   background-color: none;
   position: relative;
   animation-name: direction-up;
@@ -758,116 +795,117 @@ margin: 4%;
 }
 
 @keyframes direction-up {
-0%   {background-color:none; left: 0px; top: 200px;}
-1%   {background-color:none; left: 2px; top: 198px;}
-2%   {background-color:none; left: 4px; top: 196px;}
-3%   {background-color:none; left: 6px; top: 194px;}
-4%   {background-color:none; left: 8px; top: 192px;}
-5%   {background-color:none; left: 10px; top: 190px;}
-6%   {background-color:none; left: 12px; top: 188px;}
-7%   {background-color:none; left: 14px; top: 186px;}
-8%   {background-color:none; left: 16px; top: 184px;}
-9%   {background-color:none; left: 18px; top: 182px;}
-10%   {background-color:none; left: 20px; top: 180px;}
-11%   {background-color:none; left: 22px; top: 178px;}
-12%   {background-color:none; left: 24px; top: 176px;}
-13%   {background-color:none; left: 26px; top: 174px;}
-14%   {background-color:none; left: 28px; top: 172px;}
-15%   {background-color:none; left: 30px; top: 170px;}
-16%   {background-color:none; left: 32px; top: 168px;}
-17%   {background-color:none; left: 34px; top: 166px;}
-18%   {background-color:none; left: 36px; top: 164px;}
-19%   {background-color:none; left: 38px; top: 162px;}
-20%   {background-color:none; left: 40px; top: 160px;}
-21%   {background-color:none; left: 42px; top: 158px;}
-22%   {background-color:none; left: 44px; top: 156px;}
-23%   {background-color:none; left: 46px; top: 154px;}
-24%   {background-color:none; left: 48px; top: 152px;}
-25%   {background-color:none; left: 50px; top: 150px;}
-26%   {background-color:none; left: 52px; top: 148px;}
-27%   {background-color:none; left: 54px; top: 146px;}
-28%   {background-color:none; left: 56px; top: 144px;}
-29%   {background-color:none; left: 58px; top: 142px;}
-30%   {background-color:none; left: 60px; top: 140px;}
-31%   {background-color:none; left: 62px; top: 138px;}
-32%   {background-color:none; left: 64px; top: 136px;}
-33%   {background-color:none; left: 66px; top: 134px;}
-34%   {background-color:none; left: 68px; top: 132px;}
-35%   {background-color:none; left: 70px; top: 130px;}
-36%   {background-color:none; left: 72px; top: 128px;}
-37%   {background-color:none; left: 74px; top: 126px;}
-38%   {background-color:none; left: 76px; top: 124px;}
-39%   {background-color:none; left: 78px; top: 122px;}
-40%   {background-color:none; left: 80px; top: 120px;}
-41%   {background-color:none; left: 82px; top: 118px;}
-42%   {background-color:none; left: 84px; top: 116px;}
-43%   {background-color:none; left: 86px; top: 114px;}
-44%   {background-color:none; left: 88px; top: 112px;}
-45%   {background-color:none; left: 90px; top: 110px;}
-46%   {background-color:none; left: 92px; top: 108px;}
-47%   {background-color:none; left: 94px; top: 106px;}
-48%   {background-color:none; left: 96px; top: 104px;}
-49%   {background-color:none; left: 98px; top: 102px;}
-50%   {background-color:none; left: 100px; top: 100px;}
-51%   {background-color:none; left: 102px; top: 98px;}
-52%   {background-color:none; left: 104px; top: 96px;}
-53%   {background-color:none; left: 106px; top: 94px;}
-54%   {background-color:none; left: 108px; top: 92px;}
-55%   {background-color:none; left: 110px; top: 90px;}
-56%   {background-color:none; left: 112px; top: 88px;}
-57%   {background-color:none; left: 114px; top: 86px;}
-58%   {background-color:none; left: 116px; top: 84px;}
-59%   {background-color:none; left: 118px; top: 82px;}
-60%   {background-color:none; left: 120px; top: 80px;}
-61%   {background-color:none; left: 122px; top: 78px;}
-62%   {background-color:none; left: 124px; top: 76px;}
-63%   {background-color:none; left: 126px; top: 74px;}
-64%   {background-color:none; left: 128px; top: 72px;}
-65%   {background-color:none; left: 130px; top: 70px;}
-66%   {background-color:none; left: 132px; top: 68px;}
-67%   {background-color:none; left: 134px; top: 66px;}
-68%   {background-color:none; left: 136px; top: 64px;}
-69%   {background-color:none; left: 138px; top: 62px;}
-70%   {background-color:none; left: 140px; top: 60px;}
-71%   {background-color:none; left: 142px; top: 58px;}
-72%   {background-color:none; left: 144px; top: 56px;}
-73%   {background-color:none; left: 146px; top: 54px;}
-74%   {background-color:none; left: 148px; top: 52px;}
-75%   {background-color:none; left: 150px; top: 50px;}
-76%   {background-color:none; left: 152px; top: 48px;}
-77%   {background-color:none; left: 154px; top: 46px;}
-78%   {background-color:none; left: 156px; top: 44px;}
-79%   {background-color:none; left: 158px; top: 42px;}
-80%   {background-color:none; left: 160px; top: 40px;}
-81%   {background-color:none; left: 162px; top: 38px;}
-82%   {background-color:none; left: 164px; top: 36px;}
-83%   {background-color:none; left: 166px; top: 34px;}
-84%   {background-color:none; left: 168px; top: 32px;}
-85%   {background-color:none; left: 170px; top: 30px;}
-86%   {background-color:none; left: 172px; top: 28px;}
-87%   {background-color:none; left: 174px; top: 26px;}
-88%   {background-color:none; left: 176px; top: 24px;}
-89%   {background-color:none; left: 178px; top: 22px;}
-90%   {background-color:none; left: 180px; top: 20px;}
-91%   {background-color:none; left: 182px; top: 18px;}
-92%   {background-color:none; left: 184px; top: 16px;}
-93%   {background-color:none; left: 186px; top: 14px;}
-94%   {background-color:none; left: 188px; top: 12px;}
-95%   {background-color:none; left: 190px; top: 10px;}
-96%   {background-color:none; left: 192px; top: 8px;}
-97%   {background-color:none; left: 194px; top: 6px;}
-98%   {background-color:none; left: 196px; top: 4px;}
-99%   {background-color:none; left: 198px; top: 2px;}
-100%   {background-color:none; left: 200px; top: 0px;}
+0%   {background-color:none; left: 0.0vw; top: 6.2vw;}
+ 1%   {background-color:none; left: 0.06vw; top: 6.14vw;}
+ 2%   {background-color:none; left: 0.12vw; top: 6.08vw;}
+ 3%   {background-color:none; left: 0.19vw; top: 6.01vw;}
+ 4%   {background-color:none; left: 0.25vw; top: 5.95vw;}
+ 5%   {background-color:none; left: 0.31vw; top: 5.89vw;}
+ 6%   {background-color:none; left: 0.37vw; top: 5.83vw;}
+ 7%   {background-color:none; left: 0.43vw; top: 5.77vw;}
+ 8%   {background-color:none; left: 0.5vw; top: 5.7vw;}
+ 9%   {background-color:none; left: 0.56vw; top: 5.64vw;}
+ 10%   {background-color:none; left: 0.62vw; top: 5.58vw;}
+ 11%   {background-color:none; left: 0.68vw; top: 5.52vw;}
+ 12%   {background-color:none; left: 0.74vw; top: 5.46vw;}
+ 13%   {background-color:none; left: 0.81vw; top: 5.39vw;}
+ 14%   {background-color:none; left: 0.87vw; top: 5.33vw;}
+ 15%   {background-color:none; left: 0.93vw; top: 5.27vw;}
+ 16%   {background-color:none; left: 0.99vw; top: 5.21vw;}
+ 17%   {background-color:none; left: 1.05vw; top: 5.15vw;}
+ 18%   {background-color:none; left: 1.12vw; top: 5.08vw;}
+ 19%   {background-color:none; left: 1.18vw; top: 5.02vw;}
+ 20%   {background-color:none; left: 1.24vw; top: 4.96vw;}
+ 21%   {background-color:none; left: 1.3vw; top: 4.9vw;}
+ 22%   {background-color:none; left: 1.36vw; top: 4.84vw;}
+ 23%   {background-color:none; left: 1.43vw; top: 4.77vw;}
+ 24%   {background-color:none; left: 1.49vw; top: 4.71vw;}
+ 25%   {background-color:none; left: 1.55vw; top: 4.65vw;}
+ 26%   {background-color:none; left: 1.61vw; top: 4.59vw;}
+ 27%   {background-color:none; left: 1.67vw; top: 4.53vw;}
+ 28%   {background-color:none; left: 1.74vw; top: 4.46vw;}
+ 29%   {background-color:none; left: 1.8vw; top: 4.4vw;}
+ 30%   {background-color:none; left: 1.86vw; top: 4.34vw;}
+ 31%   {background-color:none; left: 1.92vw; top: 4.28vw;}
+ 32%   {background-color:none; left: 1.98vw; top: 4.22vw;}
+ 33%   {background-color:none; left: 2.05vw; top: 4.15vw;}
+ 34%   {background-color:none; left: 2.11vw; top: 4.09vw;}
+ 35%   {background-color:none; left: 2.17vw; top: 4.03vw;}
+ 36%   {background-color:none; left: 2.23vw; top: 3.97vw;}
+ 37%   {background-color:none; left: 2.29vw; top: 3.91vw;}
+ 38%   {background-color:none; left: 2.36vw; top: 3.84vw;}
+ 39%   {background-color:none; left: 2.42vw; top: 3.78vw;}
+ 40%   {background-color:none; left: 2.48vw; top: 3.72vw;}
+ 41%   {background-color:none; left: 2.54vw; top: 3.66vw;}
+ 42%   {background-color:none; left: 2.6vw; top: 3.6vw;}
+ 43%   {background-color:none; left: 2.67vw; top: 3.53vw;}
+ 44%   {background-color:none; left: 2.73vw; top: 3.47vw;}
+ 45%   {background-color:none; left: 2.79vw; top: 3.41vw;}
+ 46%   {background-color:none; left: 2.85vw; top: 3.35vw;}
+ 47%   {background-color:none; left: 2.91vw; top: 3.29vw;}
+ 48%   {background-color:none; left: 2.98vw; top: 3.22vw;}
+ 49%   {background-color:none; left: 3.04vw; top: 3.16vw;}
+ 50%   {background-color:none; left: 3.1vw; top: 3.1vw;}
+ 51%   {background-color:none; left: 3.16vw; top: 3.04vw;}
+ 52%   {background-color:none; left: 3.22vw; top: 2.98vw;}
+ 53%   {background-color:none; left: 3.29vw; top: 2.91vw;}
+ 54%   {background-color:none; left: 3.35vw; top: 2.85vw;}
+ 55%   {background-color:none; left: 3.41vw; top: 2.79vw;}
+ 56%   {background-color:none; left: 3.47vw; top: 2.73vw;}
+ 57%   {background-color:none; left: 3.53vw; top: 2.67vw;}
+ 58%   {background-color:none; left: 3.6vw; top: 2.6vw;}
+ 59%   {background-color:none; left: 3.66vw; top: 2.54vw;}
+ 60%   {background-color:none; left: 3.72vw; top: 2.48vw;}
+ 61%   {background-color:none; left: 3.78vw; top: 2.42vw;}
+ 62%   {background-color:none; left: 3.84vw; top: 2.36vw;}
+ 63%   {background-color:none; left: 3.91vw; top: 2.29vw;}
+ 64%   {background-color:none; left: 3.97vw; top: 2.23vw;}
+ 65%   {background-color:none; left: 4.03vw; top: 2.17vw;}
+ 66%   {background-color:none; left: 4.09vw; top: 2.11vw;}
+ 67%   {background-color:none; left: 4.15vw; top: 2.05vw;}
+ 68%   {background-color:none; left: 4.22vw; top: 1.98vw;}
+ 69%   {background-color:none; left: 4.28vw; top: 1.92vw;}
+ 70%   {background-color:none; left: 4.34vw; top: 1.86vw;}
+ 71%   {background-color:none; left: 4.4vw; top: 1.8vw;}
+ 72%   {background-color:none; left: 4.46vw; top: 1.74vw;}
+ 73%   {background-color:none; left: 4.53vw; top: 1.67vw;}
+ 74%   {background-color:none; left: 4.59vw; top: 1.61vw;}
+ 75%   {background-color:none; left: 4.65vw; top: 1.55vw;}
+ 76%   {background-color:none; left: 4.71vw; top: 1.49vw;}
+ 77%   {background-color:none; left: 4.77vw; top: 1.43vw;}
+ 78%   {background-color:none; left: 4.84vw; top: 1.36vw;}
+ 79%   {background-color:none; left: 4.9vw; top: 1.3vw;}
+ 80%   {background-color:none; left: 4.96vw; top: 1.24vw;}
+ 81%   {background-color:none; left: 5.02vw; top: 1.18vw;}
+ 82%   {background-color:none; left: 5.08vw; top: 1.12vw;}
+ 83%   {background-color:none; left: 5.15vw; top: 1.05vw;}
+ 84%   {background-color:none; left: 5.21vw; top: 0.99vw;}
+ 85%   {background-color:none; left: 5.27vw; top: 0.93vw;}
+ 86%   {background-color:none; left: 5.33vw; top: 0.87vw;}
+ 87%   {background-color:none; left: 5.39vw; top: 0.81vw;}
+ 88%   {background-color:none; left: 5.46vw; top: 0.74vw;}
+ 89%   {background-color:none; left: 5.52vw; top: 0.68vw;}
+ 90%   {background-color:none; left: 5.58vw; top: 0.62vw;}
+ 91%   {background-color:none; left: 5.64vw; top: 0.56vw;}
+ 92%   {background-color:none; left: 5.7vw; top: 0.5vw;}
+ 93%   {background-color:none; left: 5.77vw; top: 0.43vw;}
+ 94%   {background-color:none; left: 5.83vw; top: 0.37vw;}
+ 95%   {background-color:none; left: 5.89vw; top: 0.31vw;}
+ 96%   {background-color:none; left: 5.95vw; top: 0.25vw;}
+ 97%   {background-color:none; left: 6.01vw; top: 0.19vw;}
+ 98%   {background-color:none; left: 6.08vw; top: 0.12vw;}
+ 99%   {background-color:none; left: 6.14vw; top: 0.06vw;}
+ 100%   {background-color:none; left: 6.2vw; top: 0.0vw;}
 }
 
 /*
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 */
 
-                                  /*                   CSS for ha-pix.html                  */
-                                  /*                   CSS for ha-pix.html                  */
-                                  /*                   CSS for ha-pix.html                  */
+                                  /*                   CSS for ha-grid.html                  */
+                                  /*                   CSS for ha-grid.html                  */
+                                  /*                   CSS for ha-grid.html                  */
+                                  /*                   CSS for ha-grid.html                  */
 
 * { box-sizing: border-box; }
 
@@ -876,40 +914,24 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
     pointer-events: none;
 }
 
-.pixheader 
+.pixheadergrid
 {
   text-align: center;
   padding: 32px;
   color: #a66a6a;
   font-weight: bold;
+  font-size: 1.5vw;
 }
 
-.splborder {
-  border-top: 3px solid rosybrown;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(transparent));
-  background-image: -webkit-linear-gradient(#000, transparent);
-  background-image:
-      -moz-linear-gradient(#000, transparent),
-      -moz-linear-gradient(#000, transparent);
-  background-image:
-      -o-linear-gradient(#000, transparent),
-      -o-linear-gradient(#000, transparent);
-  background-image: 
-      linear-gradient(#000, transparent),
-      linear-gradient(#000, transparent);
-  -moz-background-size: 3px 100%;
-  background-size: 3px 100%;
-  background-position: 0 0, 100% 0;
-  background-repeat: no-repeat; 
-}
-
-.pixrow 
+.pixrowgrid
 {
+  position: relative;
+  margin-top: 1vw;
   display: flex;
   flex-flow: row wrap;
   padding: 0 1%;             /* COLUMN space between pictures */
   max-width: 50%;            /* Makes pictures right sized in the gallery */ 
-  height: 100vh;
+  height: auto; /* 16:38 10-08-2020 100vh; */
 
                              /* ADDs margin to keep the gallery in center of page, rosybrown */
   margin-left: 25%;     
@@ -917,7 +939,7 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
   padding-left: 5%;
   padding-right: 5%;
                              /* FAT border on right and left of the Gallery */
-  border-width: 30px;
+  border-width: 1.5vw;
   border-style: solid;
   border-image:
     linear-gradient(
@@ -928,14 +950,14 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
 }
 
                              /* Create four equal columns that sits next to each other */
-.pixcol 
+.pixcolgrid
 {
   flex: 20%;
   max-width: 20%;
   padding: 0 1%;             /* COLUMN space between pictures */
 }
 
-.pixcolimg 
+.pixcolimggrid
 {
   margin-top: 6%;            /* ROW space between pictures */
   vertical-align: middle;
@@ -944,7 +966,7 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
                              /* Responsive layout - makes a two column-layout */
 @media (max-width: 800px) 
 {
-  .pixcol {
+  .pixcolgrid {
     flex: 100%;
     max-width: 100%;
   }
@@ -953,16 +975,106 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
                             /* Responsive layout - makes the two columns stack on top of each other */
 @media (max-width: 600px) 
 {
-  .pixcol {
+  .pixcolgrid {
     flex: 50%;
     max-width: 50%;
   }
 }
 
-                                  /*                   CSS for ha-blogs.html                  */
-                                  /*                   CSS for ha-blogs.html                  */
-                                  /*                   CSS for ha-blogs.html                  */
 
+                                  /*                   CSS for ha-bio.html                  */
+                                  /*                   CSS for ha-bio.html                  */
+                                  /*                   CSS for ha-bio.html                  */
+                                  /*                   CSS for ha-bio.html                  */
+
+.pixheaderbio
+{
+  text-align: center;
+  padding: 32px;
+  color: #a66a6a;
+  font-weight: bold;
+  font-size: 1.5vw;
+}
+
+.pixrowbio
+{
+  position: relative;
+  margin-top: 1vw;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 5vw 5vw;             /* COLUMN space between pictures */
+  max-width: 80%;              /* PLUS or MINUS Picture sizes in the gallery */ 
+  height: auto; /* 16:38 10-08-2020 100vh; */
+
+                             /* ADDs margin to keep the gallery in center of page, rosybrown */
+  margin-left: 25%;     
+  margin-right: 10%; 
+  padding-left: 5%;
+  padding-right: 5%;
+                             /* STOPPED 21:01 15-08-2020 for ha-bio.html page
+                               FAT border on right and left of the Gallery */
+/*
+  border-width: 1.5vw;
+  border-style: solid;
+  border-image:
+    linear-gradient(
+      to bottom, 
+      #d9c0c0, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+*/
+
+}
+
+                             /* Create four equal columns that sits next to each other */
+.pixcolbio
+{
+  flex: 30%;                 /* PLUS or MINUS Picture size along with max-width: in .pixrow */
+  max-width: 30%;            /* PLUS or MINUS Picture size along with max-width: in .pixrow */
+  padding: 0 1%;             /* COLUMN space between pictures */
+}
+
+.pixcolimgbio
+{
+  margin-top: 6%;            /* ROW space between pictures */
+  vertical-align: middle;
+}
+
+                             /* Responsive layout - makes a two column-layout */
+@media (max-width: 800px) 
+{
+  .pixcolbio {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+                            /* Responsive layout - makes the two columns stack on top of each other */
+@media (max-width: 600px) 
+{
+  .pixcolbio {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+.pixtextbio
+{
+   position: relative;
+   color: slateblue;             /* #e2a7f2; */
+   font-family: 'Rouge Script', cursive; 
+   font-size: 1.5vw; 
+   font-weight: bold;
+   margin: 5% 0 5%; 
+   text-align: center; 
+   text-shadow: 2px 2px 4px grey; 
+}
+
+
+                                  /*                   CSS for ha-blogs.html                  */
+                                  /*                   CSS for ha-blogs.html                  */
+                                  /*                   CSS for ha-blogs.html                  */
+                                  /*                   CSS for ha-blogs.html                  */
 .wipborder {
   border-top: 3px solid rosybrown;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(transparent));
@@ -984,16 +1096,16 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
 
 
 .bakground {
-  left: 35%;
+  left: 30%;
   width: 40%;
-  height: 5%;
+  height: 8%;
   color: rosybrown;  /* original color */
   animation-name: bakgd, texts, fonts;
   animation-duration: 21s;
   padding: 5% 0;
   text-align: center;
   box-shadow: 10px 10px 8px 10px honeydew;
-  font-size: 180%;
+  font-size: 2.94vw;
   font-weight: bold;
 /*
   border: 5px solid rosybrown;
@@ -1006,6 +1118,7 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
   animation-duration: 21s;
 }
 
+
 @keyframes bakgd {
   0%   {background-color: lightcyan;}
   10%  {background-color: aquamarine;}
@@ -1015,7 +1128,7 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
   50%  {background-color: mediumblue;}
   60%  {background-color: darkslateblue;}
   70%  {background-color: royalblue;}  
-  80%  {background-color:deepbluesky;}
+  80%  {background-color: deepbluesky;}
   90%  {background-color: mediumslateblue;}
   100% {background-color: powderblue;}
 }
@@ -1035,35 +1148,35 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
 }
 
 @keyframes fonts {
- 0%   {font-size: 180%;}
- 5%   {font-size: 162%;}
- 10%   {font-size: 144%;}
- 15%   {font-size: 126%;}
- 20%   {font-size: 108%;}
- 25%   {font-size: 90%;}
- 30%   {font-size: 72%;}
- 35%   {font-size: 54%;}
- 40%   {font-size: 36%;}
- 45%   {font-size: 18%;}
- 50%   {font-size: 0%;}
- 55%   {font-size: 18%;}
- 60%   {font-size: 36%;}
- 65%   {font-size: 54%;}
- 70%   {font-size: 72%;}
- 75%   {font-size: 90%;}
- 80%   {font-size: 108%;}
- 85%   {font-size: 126%;}
- 90%   {font-size: 144%;}
- 95%   {font-size: 162%;}
- 100%   {font-size: 180%;}
+ 0%   {font-size: 2.94vw;}
+ 5%   {font-size: 2.73vw;}
+ 10%   {font-size: 2.44vw;}
+ 15%   {font-size: 2.14vw;}
+ 20%   {font-size: 1.85vw;}
+ 25%   {font-size: 1.55vw;}
+ 30%   {font-size: 1.26vw;}
+ 35%   {font-size: 0.97vw;}
+ 40%   {font-size: 0.67vw;}
+ 45%   {font-size: 0.38vw;}
+ 50%   {font-size: 0.08vw;}
+ 55%   {font-size: 0.29vw;}
+ 60%   {font-size: 0.59vw;}
+ 65%   {font-size: 0.88vw;}
+ 70%   {font-size: 1.18vw;}
+ 75%   {font-size: 1.47vw;}
+ 80%   {font-size: 1.76vw;}
+ 85%   {font-size: 2.06vw;}
+ 90%   {font-size: 2.35vw;}
+ 95%   {font-size: 2.65vw;}
+ 100%   {font-size: 2.94vw;}
 }
-
 
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <script>
+
 /*************************************************** JQuery / JavaScript code ***************************************************/
 /*************************************************** JQuery / JavaScript code ***************************************************/
 /*************************************************** JQuery / JavaScript code ***************************************************/
@@ -1308,6 +1421,25 @@ function getSet(value, index, self)
     return self.indexOf(value) === index;
 }
 
+function ReadBioPictureJSONFile(picArray)
+{
+// ReadshowPictureJSONFile is the name of JSON object in file showPicture.js
+// The typeof operator, when used on an array, returns object.
+
+         if (isanArray(picArray))
+         {
+             showPictureJSONArray = picArray;
+//             showPictureJSONArray = picArray.sort();
+         }
+         else
+         {
+            window.alert("ERROR: Not an array");
+         }
+
+// alert(showPictureJSONArray.length);
+}
+
+
 function ReadshowPictureJSONFile(picArray)
 {
 // ReadshowPictureJSONFile is the name of JSON object in file showPicture.js
@@ -1462,9 +1594,13 @@ function hopePixStart()
         function returnSubCategory() 
         {     
                  /*
-                    Returns current or selected Sub-Category from the drop down menu
+                    Returns "current" Category in the drop down menu
                  */
+                 CURRPICCATEGORY = document.getElementById("dropdowncat").value;
 
+                 /*
+                    Returns "selected" Sub-Category from the drop down menu
+                 */
                  selectElement = document.querySelector('#dropdownsubcat'); 
                  CURRPICSUBCATEGORY = selectElement.value; 
                  // window.alert("returnSubCategory(): " + CURRPICCATEGORY + ":: " + CURRPICSUBCATEGORY);
@@ -1567,12 +1703,15 @@ window.alert("LSP IN1: " + l_picarray + ", " + typeof(l_picarray) );
              var rowClass = document.createAttribute("class");
              rowClass.value = "row";
              clearfixDiv.classList.add("clearfix", "row");
-             var pname   = showPictureJSONArray[ls_picIDX].namewmd;
-             var pwidth  = showPictureJSONArray[ls_picIDX].width;
-             var pheight = showPictureJSONArray[ls_picIDX].height;
-             var ptitle  = showPictureJSONArray[ls_picIDX].title;
-             var pdesc   = showPictureJSONArray[ls_picIDX].desc;
-             var poutput = ls_picIDX + ". " + pname + ", " + pwidth + ", " + pheight + ".<br><br>" + ptitle + ".";
+             var pname      = showPictureJSONArray[ls_picIDX].namewmd;
+             var pcurrency  = showPictureJSONArray[ls_picIDX].currency;
+             var pprice     = showPictureJSONArray[ls_picIDX].price;
+             var pwidthpx   = showPictureJSONArray[ls_picIDX].widthpx;
+             var pheightpx  = showPictureJSONArray[ls_picIDX].heightpx;
+             var ptitle     = showPictureJSONArray[ls_picIDX].title;
+             var pdesc      = showPictureJSONArray[ls_picIDX].desc;
+//             var poutput = ls_picIDX + ". " + pname + ", " + pwidthpx + ", " + pheightpx + ".<br><br>" + ptitle + ".";
+             var poutput    = ptitle;
              clearfixDiv.innerHTML = poutput;
 //             clearfixDiv.style.backgroundColor = "ivory";
              document.getElementsByClassName("page-center")[0].appendChild(clearfixDiv); 
@@ -1582,8 +1721,8 @@ window.alert("LSP IN1: " + l_picarray + ", " + typeof(l_picarray) );
 		imgContainerClass.value = "imgcontainer";
 		imgContainerDiv.classList.add("imgcontainer");
 		imgContainerDiv.setAttribute("src",    pname);
-		imgContainerDiv.setAttribute("width",  pwidth);
-		imgContainerDiv.setAttribute("height", pheight);
+		imgContainerDiv.setAttribute("width",  pwidthpx);
+		imgContainerDiv.setAttribute("height", pheightpx);
 		imgContainerDiv.setAttribute("alt",    ptitle);
 		document.getElementsByClassName("clearfix")[loopIdx].appendChild(imgContainerDiv);
 
@@ -1601,8 +1740,79 @@ window.alert("LSP IN1: " + l_picarray + ", " + typeof(l_picarray) );
 }
 
 
-const NUMBEROFCOLUMNS = 4;
+                                  /*                   Javascript for ha-grid.html                  */
+                                  /*                   Javascript for ha-grid.html                  */
+                                  /*                   Javascript for ha-grid.html                  */
+                                  /*                   Javascript for ha-grid.html                  */
+// const NUMBEROFCOLUMNS = 4;
 function hopeLoadPixGrid()
+{
+         var picArrayLen = showPictureJSONArray.length;
+//         window.alert(picArrayLen);
+//         getNumberType('30');
+// for loop till 32 at 32 add ot the div, 
+         var colPix = Math.floor(picArrayLen / NUMBEROFCOLUMNS);
+         var nXtra = picArrayLen % NUMBEROFCOLUMNS;
+//         window.alert('HLP: '+ colPix + ' - ' + nXtra);
+         RUNloadGalleryPixGrid(NUMBEROFCOLUMNS, colPix);
+}
+
+
+function RUNloadGalleryPixGrid(rl_numCols, rl_colPix)
+{
+//         window.alert(rl_numCols + ' - ' + rl_colPix);
+         var rl_picIDX;
+         for (rl_picIDX = 0; rl_picIDX < rl_numCols; rl_picIDX++)
+         {
+//              window.alert('RLG: '+ rl_picIDX + ' - ' + rl_colPix);
+              loadGalleryPixGrid(rl_picIDX, rl_colPix);
+         }
+}
+
+
+function loadGalleryPixGrid(rl_picIDX, lg_colPix)
+{
+         var lg_picIDX;
+         var curr_picIDX;
+         for (lg_picIDX = 0; lg_picIDX < lg_colPix; lg_picIDX++)
+         {
+              curr_picIDX = lg_picIDX + (rl_picIDX * lg_colPix);
+// window.alert('loadGalleryPix: rl_picIDX: '+ rl_picIDX + ' ,lg_colPix: ' + lg_colPix + ' ,lg_picIDX: ' + lg_picIDX + ' ,curr_picIDX: ' + curr_picIDX + ' - ' + showPictureJSONArray[curr_picIDX].namewmd);
+
+              var pixcolDiv = document.createElement('div');
+              pixcolDiv.id = "pixcolgridid";
+              var pixcolClass = document.createAttribute("class");
+              pixcolClass.value = "pixcolgrid";
+              pixcolDiv.classList.add("pixcolgrid");
+              var pname   = showPictureJSONArray[curr_picIDX].namecmp;
+              var pwidthpx  = "100%";
+//              var ptitle  = showPictureJSONArray[curr_picIDX].title;
+//              var poutput = curr_picIDX + ". " + ptitle;
+//              var poutput = ptitle;
+//              pixcolDiv.innerHTML = poutput;
+
+              document.getElementsByClassName("pixrowgrid")[0].appendChild(pixcolDiv); 
+
+		var imgContainerDiv = document.createElement('img');
+		var imgContainerClass = document.createAttribute("class");
+		imgContainerClass.value = "pixcolimggrid";
+		imgContainerDiv.classList.add("pixcolimggrid");
+		imgContainerDiv.setAttribute("src",    pname);
+		imgContainerDiv.setAttribute("width",  pwidthpx);
+//		imgContainerDiv.setAttribute("alt",    ptitle);
+                
+                document.getElementsByClassName("pixcolgrid")[curr_picIDX].appendChild(imgContainerDiv);
+
+         }
+}
+
+
+                                  /*                   Javascript for ha-bio.html                  */
+                                  /*                   Javascript for ha-bio.html                  */
+                                  /*                   Javascript for ha-bio.html                  */
+                                  /*                   Javascript for ha-bio.html                  */
+const NUMBEROFCOLUMNS = 2;
+function hopeLoadPixBio()
 {
          var picArrayLen = showPictureJSONArray.length;
 //         window.alert(picArrayLen);
@@ -1614,21 +1824,36 @@ function hopeLoadPixGrid()
          RUNloadGalleryPix(NUMBEROFCOLUMNS, colPix);
 }
 
+function hopeLoadPixBio()
+{
+         var picArrayLen = showPictureJSONArray.length;
+//         window.alert(picArrayLen);
+//         getNumberType('30');
+// for loop till 32 at 32 add ot the div, 
+         var colPix = Math.floor(picArrayLen / NUMBEROFCOLUMNS);
+         var nXtra = picArrayLen % NUMBEROFCOLUMNS;
+//         window.alert('HLP: '+ colPix + ' - ' + nXtra);
+         RUNloadGalleryPixBio(NUMBEROFCOLUMNS, colPix);
+}
 
-function RUNloadGalleryPix(rl_numCols, rl_colPix)
+
+function RUNloadGalleryPixBio(rl_numCols, rl_colPix)
 {
 //         window.alert(rl_numCols + ' - ' + rl_colPix);
          var rl_picIDX;
          for (rl_picIDX = 0; rl_picIDX < rl_numCols; rl_picIDX++)
          {
 //              window.alert('RLG: '+ rl_picIDX + ' - ' + rl_colPix);
-              loadGalleryPix(rl_picIDX, rl_colPix);
+              loadGalleryPixBio(rl_picIDX, rl_colPix);
          }
 }
 
 
-function loadGalleryPix(rl_picIDX, lg_colPix)
+function loadGalleryPixBio(rl_picIDX, lg_colPix)
 {
+
+         var l_poutput = "";
+         var l_toutput = "";         
          var lg_picIDX;
          var curr_picIDX;
          for (lg_picIDX = 0; lg_picIDX < lg_colPix; lg_picIDX++)
@@ -1636,42 +1861,69 @@ function loadGalleryPix(rl_picIDX, lg_colPix)
               curr_picIDX = lg_picIDX + (rl_picIDX * lg_colPix);
 // window.alert('loadGalleryPix: rl_picIDX: '+ rl_picIDX + ' ,lg_colPix: ' + lg_colPix + ' ,lg_picIDX: ' + lg_picIDX + ' ,curr_picIDX: ' + curr_picIDX + ' - ' + showPictureJSONArray[curr_picIDX].namewmd);
 
-              var pixcolDiv = document.createElement('div');
-              pixcolDiv.id = "pixcolid";
+              var pixtextDiv = document.getElementById("pixtextbio");   
+
+              var pixcolDiv  = document.createElement('div');
+              pixcolDiv.id   = "pixcolbioid";
               var pixcolClass = document.createAttribute("class");
-              pixcolClass.value = "pixcol";
-              pixcolDiv.classList.add("pixcol");
-              var pname   = showPictureJSONArray[curr_picIDX].namecmp;
-              var pwidth  = "100%";
+              pixcolClass.value = "pixcolbio";
+              pixcolDiv.classList.add("pixcolbio");
+//
+// CHANGED: 20:57 15-08-2020
+// from .namecmp => .name
+//
+              var pname   = showPictureJSONArray[curr_picIDX].name;
+              var pwidthpx  = "100%";
 //              var ptitle  = showPictureJSONArray[curr_picIDX].title;
 //              var poutput = curr_picIDX + ". " + ptitle;
 //              var poutput = ptitle;
 //              pixcolDiv.innerHTML = poutput;
+              var pdesc  = showPictureJSONArray[curr_picIDX].desc;
 
-              document.getElementsByClassName("pixrow")[0].appendChild(pixcolDiv); 
+
+              document.getElementsByClassName("pixrowbio")[0].appendChild(pixcolDiv); 
 
 		var imgContainerDiv = document.createElement('img');
 		var imgContainerClass = document.createAttribute("class");
-		imgContainerClass.value = "pixcolimg";
-		imgContainerDiv.classList.add("pixcolimg");
+		imgContainerClass.value = "pixcolimgbio";
+		imgContainerDiv.classList.add("pixcolimgbio");
 		imgContainerDiv.setAttribute("src",    pname);
-		imgContainerDiv.setAttribute("width",  pwidth);
+		imgContainerDiv.setAttribute("width",  pwidthpx);
 //		imgContainerDiv.setAttribute("alt",    ptitle);
                 
-                document.getElementsByClassName("pixcol")[curr_picIDX].appendChild(imgContainerDiv);
 
+                l_toutput = l_toutput + " " + pdesc;
+                document.getElementsByClassName("pixcolbio")[curr_picIDX].appendChild(imgContainerDiv);
          }
+//                var prevInnerHTML = document.getElementById("pixtextbio").innerHTML;
+//                pixtextDiv.innerHTML = prevInnerHTML + " <br> " + l_toutput ;     
+
+//                var pixtextDiv = document.getElementById("pixtextbio");   
+                var para = document.createElement("P");
+                var paraClass = document.createAttribute("class");
+                paraClass.value = "pixtextbio";
+                para.classList.add("pixtextbio");
+
+                var paraText = document.createTextNode(l_toutput);
+                para.appendChild(paraText);
+              document.getElementsByClassName("pixrowbio")[0].appendChild(para);      
 }
 
 
-</script> 
-<script src="hashowPicture.js"></script> 
+</script>
 
+<!--                  Using JSON Function files feature of JavaScript                 -->
+<!--                  Using JSON Function files feature of JavaScript                 -->
+<!--                  Using JSON Function files feature of JavaScript                 -->
+<!--                  Using JSON Function files feature of JavaScript                 -->
+
+<script src="haBioPictures.js"></script> 
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
 
-<body onload="hopeLoadPixGrid();">
+<body onload="hopeLoadPixBio();">
+
 
 
 <!--                                       PAGE HEADER                                         -->
@@ -1690,35 +1942,36 @@ function loadGalleryPix(rl_picIDX, lg_colPix)
 <!--                                       START OF FIRST LINE OF BIRDS                                         -->
 <!--                                       START OF FIRST LINE OF BIRDS                                         -->
 
-<i class='right-rotate-hippo fas fa-dove' style='font-size:36px; color:#eca2aa;'></i>
+
+<i class='right-rotate-hippo fas fa-dove' style='font-size:3.0vw; color:#eca2aa;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;
-<i class='fas fa-dove' style='font-size:18px; color:#44d7a8;'></i>
+<i class='fas fa-dove' style='font-size:1.5vw; color:#44d7a8;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-dove' style='font-size:36px; color:#eca2aa;'></i>
+<i class='fas fa-dove' style='font-size:3.0vw; color:#eca2aa;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='rotate-right-down fas fa-fish' style='font-size:24px; color:#BBB477;'></i>
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;
-<i class='fas fa-dove' style='font-size:18px; color:#44d7a8;'></i>
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;
-<i class='rotate-right-down-big-big fas fa-fish' style='font-size:24px; color:slategrey;'></i>
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;
-<i class='left-rotate-hippo fas fa-dove' style='font-size:36px; color:#eca2aa;'></i>
+<i class='rotate-right-down fas fa-fish' style='font-size:1.98vw; color:#BBB477;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;
-<i class='fas fa-dove' style='font-size:18px; color:#44d7a8;'></i>
+<i class='fas fa-dove' style='font-size:1.5vw; color:#44d7a8;margin-top:5%;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-down-big-big fas fa-fish' style='font-size:1.98vw; color:slategrey;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='left-rotate-hippo fas fa-dove' style='font-size:3.0vw; color:#eca2aa;margin-top:3%;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+<i class='fas fa-dove' style='font-size:1.5vw; color:#44d7a8;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<i class='rotate-right-down-big fas fa-fish' style='font-size:24px; color:#BBB477;'></i>
+<i class='rotate-right-down-big fas fa-fish' style='font-size:1.98vw; color:#BBB477;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<i class="right-rotate-fish-small fas fa-fish" style="font-size:32px; color:aqua;"></i>
-<i class="left-rotate-fish-small rotate-left-down fas fa-fish" style="font-size:32px; color:slategray;">   </i>
+<i class="right-rotate-fish-small fas fa-fish" style="font-size:2.67vw; color:aqua;"></i>
+<i class="left-rotate-fish-small rotate-left-down fas fa-fish" style="font-size:2.67vw; color:slategray;margin-left:1%;"></i>
 
 
 
@@ -1730,40 +1983,44 @@ function loadGalleryPix(rl_picIDX, lg_colPix)
 
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-fish' style='font-size:48px; color:#cdcd00;'></i>
+<i class='fas fa-fish' style='font-size:3.0vw; color:#cdcd00;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-dove' style='font-size:24px; color:#b580ff;'></i>
+<i class='fas fa-dove' style='font-size:1.98vw; color:#b580ff;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='left-rotate-hippo rotate-right-down fas fa-fish' style='font-size:48px; color:lightgreen;'></i>
+<i class='left-rotate-hippo rotate-right-down fas fa-fish' style='font-size:3.0vw; color:lightgreen;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-dove' style='font-size:24px; color:#b580ff;'></i>
+<i class='fas fa-dove' style='font-size:1.98vw; color:#b580ff;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-fish' style='font-size:48px; color:#b8c0c8;'></i>
+<i class='fas fa-fish' style='font-size:3.0vw; color:#b8c0c8;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-dove' style='font-size:24px; color:#b580ff;'></i>
+<i class='fas fa-dove' style='font-size:1.98vw; color:#b580ff;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='rotate-right-down-big fas fa-fish' style='font-size:48px; color:sandybrown;'></i>
+<i class='rotate-right-down-big fas fa-fish' style='font-size:3.0vw; color:sandybrown;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-dove' style='font-size:24px; color:#b580ff;'></i>
+<i class='fas fa-dove' style='font-size:1.98vw; color:#b580ff;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='rotate-right-up fas fa-fish' style='font-size:48px; color:lightgreen;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-fish' style='font-size:36px; color:sandybrown;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;
-<i class='rotate-right-down-big fas fa-dove' style='font-size:48px; color:#9accff;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='rotate-right-down-big-big fas fa-fish' style='font-size:36px; color:aqua;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<i class='rotate-right-down-big-big fas fa-fish' style='font-size:3.0vw; color:aqua;'></i>
 
 
 <!--                                       START OF THIRD LINE OF BIRDS                                         -->
@@ -1774,135 +2031,156 @@ function loadGalleryPix(rl_picIDX, lg_colPix)
 
 <br>
 &nbsp;&nbsp;
-<i class='rotate-right-down-big fas fa-dove' style='font-size:48px; color:#9accff;'></i>
+<i class='rotate-right-down-big fas fa-dove' style='font-size:3.0vw; color:#9accff;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
+<i class='fas fa-fish' style='font-size:1.5vw; color:#DB91EF;'></i>
 &nbsp;&nbsp;&nbsp;
-<i class='fas fa-fish' style='font-size:32px; color:aqua;'></i>
+<i class='fas fa-fish' style='font-size:2.67vw; color:aqua;'></i>
 &nbsp;&nbsp;&nbsp;
-<i class='rotate-right-down-big-big fas fa-dove' style='font-size:48px; color:#eca2aa;'></i>
+<i class='rotate-right-down-big-big fas fa-dove' style='font-size:3.0vw; color:#eca2aa;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
+<i class='fas fa-fish' style='font-size:1.5vw; color:#DB91EF;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;
-<i class='right-rotate-hippo fas fa-dove' style='font-size:48px; color:#9accff;'></i>
+<i class='right-rotate-hippo fas fa-dove' style='font-size:3.0vw; color:#9accff;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='rotate-right-up fas fa-fish' style='font-size:36px; color:aqua;'></i>
+<i class='rotate-right-up fas fa-fish' style='font-size:3.0vw; color:aqua;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
+<i class='fas fa-fish' style='font-size:1.5vw; color:#DB91EF;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='rotate-right-down-big fas fa-fish' style='font-size:36px; color:#cdcd00;'></i>
+<i class='rotate-right-down-big fas fa-fish' style='font-size:3.0vw; color:#cdcd00;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;
-<i class='rotate-right-down-big-big fas fa-dove' style='font-size:48px; color:#eca2aa;'></i>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+<i class='rotate-right-down-big-big fas fa-dove' style='font-size:3.0vw; color:#eca2aa;margin-top:5%;'></i>
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
-<i class='fas fa-fish' style='font-size:18px; color:#DB91EF;'></i>
+<i class='fas fa-fish' style='font-size:1.5vw; color:#DB91EF;'></i>
 
 </div>    <!-- END of div class birds-border-top -->
 
 
 <div style="position: absolute; top: 25%; left: 2%; ">
   <div style="position: relative;" >
-       <i class="right-rotate-fish rotate-right-up fas fa-fish" style="font-size:36px; color:#cdcd00;"></i>
-       <i class="left-rotate-fish rotate-left-up fas fa-fish" style="font-size:36px; color:sandybrown;">   </i>
+       <i class="right-rotate-fish rotate-right-up fas fa-fish" style="font-size:3.0vw; color:#cdcd00;"></i>
+       <i class="left-rotate-fish rotate-left-up fas fa-fish" style="font-size:3.0vw; color:sandybrown;">   </i>
   <br><br>
   </div>
 
   <div style="position: relative;" >
   <br><br><br>
-       <i class="right-rotate-fish rotate-right-up fas fa-dove" style="font-size:48px; color:white"></i>
-       <i class="left-rotate-fish fa-flip-horizontal fas fa-dove" style="font-size:36px; color:white;"></i>
+       <i class="right-rotate-fish rotate-right-up fas fa-dove" style="font-size:3.0vw; color:white"></i>
+       <i class="left-rotate-fish fa-flip-horizontal fas fa-dove" style="font-size:3.0vw; color:white;"></i>
   </div>
 
   <div style="position: relative;" >
        <br>
        &nbsp;&nbsp;&nbsp;&nbsp;
-       <i class="right-rotate-fish fas fa-dragon" style="font-size:24px; color:white;"></i>
+       <i class="right-rotate-fish fas fa-dragon" style="font-size:1.98vw; color:white;"></i>
        &nbsp;&nbsp;&nbsp;&nbsp;
-       <i class="left-rotate-fish fa-flip-horizontal fas fa-dragon" style="font-size:32px; color:#db4545;"></i>
+       <i class="left-rotate-fish fa-flip-horizontal fas fa-dragon" style="font-size:2.67vw; color:#db4545;"></i>
        &nbsp;&nbsp;&nbsp;&nbsp;
-       <i class="right-rotate-fish rotate-right-up fas fa-dove" style="font-size:36px; color:#eca2aa;"></i>
-       <i class="left-rotate-fish fa-flip-horizontal fas fa-dove" style="font-size:48px; color:white;"></i>
+       <i class="right-rotate-fish rotate-right-up fas fa-dove" style="font-size:3.0vw; color:#eca2aa;"></i>
+       <i class="left-rotate-fish fa-flip-horizontal fas fa-dove" style="font-size:3.0vw; color:white;"></i>
        &nbsp;&nbsp;&nbsp;
-       <i class='rotate-right-up fas fa-dove' style='font-size:24px; color:white'></i>
+       <i class='rotate-right-up fas fa-dove' style='font-size:1.98vw; color:white'></i>
        &nbsp;&nbsp;
-            <i class="right-rotate-hippo fas fa-dragon" style="font-size:24px; color:#db4545;"></i>
-            <i class="left-rotate-hippo fa-flip-horizontal fas fa-dragon" style="font-size:48px; color:#db4545;"></i>
+            <i class="right-rotate-hippo fas fa-dragon" style="font-size:1.98vw; color:#db4545;"></i>
+            <i class="left-rotate-hippo fa-flip-horizontal fas fa-dragon" style="font-size:2.75vw; color:#db4545;"></i>
        &nbsp;&nbsp;&nbsp;&nbsp;
-       <i class='fas fa-dove' style='font-size:36px; color:white'></i>
+       <i class='fas fa-dove' style='font-size:3.0vw; color:white'></i>
        &nbsp;&nbsp;&nbsp;&nbsp;
-       <i class="left-rotate-fish fa-flip-horizontal fas fa-dove" style="font-size:48px; color:white;"></i>
+       <i class="left-rotate-fish fa-flip-horizontal fas fa-dove" style="font-size:3.0vw; color:white;"></i>
        &nbsp;&nbsp;&nbsp;
-       <i class="right-rotate-hippo fas fa-dragon" style="font-size:32px; color:#db4545;"></i>
-       <i class="left-rotate-hippo fas fa-hippo fa-flip-horizontal" style="font-size:36px; color:seagreen;"></i>
+       <i class="right-rotate-hippo fas fa-dragon" style="font-size:2.1vw; color:#db4545;"></i>
+       <i class="left-rotate-hippo fas fa-hippo fa-flip-horizontal" style="font-size:2.5vw; color:seagreen;"></i>
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <i class='fas fa-dove' style='font-size:24px; color:white'></i>
+       <i class='fas fa-dove' style='font-size:1.98vw; color:white'></i>
 
        <br>
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <i class='rotate-right-up-big-big fas fa-dove' style='font-size:48px; color:#eca2aa;'></i>
+       <i class='rotate-right-up-big-big fas fa-dove' style='font-size:3.0vw; color:#eca2aa;'></i>
        &nbsp;&nbsp;&nbsp;&nbsp;
-       <i class='rotate-right-up-big fas fa-dove' style='font-size:24px; color:white'></i>
+       <i class='rotate-right-up-big fas fa-dove' style='font-size:1.98vw; color:white'></i>
        &nbsp;&nbsp;&nbsp;&nbsp;
-       <i class='rotate-right-up-big-big fas fa-dove' style='font-size:36px; color:#9accff;'></i>
+       <i class='rotate-right-up-big-big fas fa-dove' style='font-size:3.0vw; color:#9accff;'></i>
        &nbsp;&nbsp;&nbsp;&nbsp;
-       <i class="right-rotate-hippo fas fa-hippo" style="font-size:32px; color:seagreen"></i>
-       <i class="left-rotate-hippo fas fa-hippo fa-flip-horizontal" style="font-size:36px; color:#cdcd00"></i>
+       <i class="right-rotate-hippo fas fa-hippo" style="font-size:2.67vw; color:seagreen"></i>
+       <i class="left-rotate-hippo fas fa-hippo fa-flip-horizontal" style="font-size:3.0vw; color:#cdcd00"></i>
        &nbsp;&nbsp;&nbsp;&nbsp;
-       <i class='fas fa-dove' style='font-size:36px; color:white'></i>
+       <i class='fas fa-dove' style='font-size:3.0vw; color:white'></i>
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <i class="rotate-left-down right-rotate-hippo fas fa-hippo" style="font-size:32px; color:seagreen"></i>
+       <i class="rotate-left-down right-rotate-hippo fas fa-hippo" style="font-size:2.67vw; color:seagreen"></i>
        &nbsp;&nbsp;&nbsp;
-       <i class='fas fa-dove' style='font-size:36px; color:white'></i>
+       <i class='fas fa-dove' style='font-size:3.0vw; color:white'></i>
   </div>
 </div>
 
 
-<div style="position: absolute; top: 25%; left:55%; ">
+<div style="position: absolute; top: 35%; left:45%; ">
 <div class="position1" style="position: relative;">
-       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i><br><br>
+       <i class="go-up fas fa-dragon" style="font-size:3.0vw; color:#db4545;"></i><br><br>
        &nbsp;&nbsp;&nbsp;&nbsp;
        &nbsp;&nbsp;&nbsp;&nbsp;
        &nbsp;&nbsp;&nbsp;&nbsp;
        &nbsp;&nbsp;
-       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i><br><br>
-       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i>
+       <i class="go-up fas fa-dragon" style="font-size:1.89vw; color:#db4545;"></i><br><br>
+       <i class="go-up fas fa-dragon" style="font-size:1.89vw; color:#db4545;"></i>
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i><br>
+       <i class="go-up fas fa-dragon" style="font-size:3.0vw; color:#db4545;"></i><br>
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i>
+       <i class="go-up fas fa-dragon" style="font-size:1.89vw; color:#db4545;"></i>
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-       <i class="go-up fas fa-dragon" style="font-size:36px; color:#db4545;"></i>
+       <i class="go-up fas fa-dragon" style="font-size:1.89vw; color:#db4545;"></i>
 </div>
 </div>
 
-
+<!--                                       END OF LINE OF BIRDS                                         -->
+<!--                                       END OF LINE OF BIRDS                                         -->
+<!--                                       END OF LINE OF BIRDS                                         -->
+<!--                                       END OF LINE OF BIRDS                                         -->
 
 </div>    <!-- END of div class="org-NameMotoHeader" -->
 
+<!--
+      <div style="margin-left: -15%; display: flex; flex-flow: row;text-shadow: 2px 2px 4px #082b34; font-family: 'Rouge Script', cursive; font-size: 2.1vw; font-weight: bold; color: #e2a7f2;">
+                 <a class="a-noborder fa fa-paint-brush" style="color: #e2a7f2;"  href="ha-bio.html" title=""></a>
+                 <a class="a-noborder fa fa-sticky-note" style="color: #e2a7f2;" href="ha-bio.html" title="">Bio</a>
+           <span style="display: flex; flex-flow: flex-flow:column wrap;">
+-->
 
   <div class="menu-box-container">
-      <div><a class="a-noborder menu-mr menu-box-style fas fa-home fa-fw"   href="index.html"     title="">&nbsp;Home</a></div>    
-      <div><a class="a-noborder menu-mr menu-box-style fas fa-book fa-fw"   href="ha-blogs.html"  title="">&nbsp;Blogs</a></div>
-      <div><a class="a-noborder menu-mr menu-box-style fas fa-images fa-fw" href="ha-pix.html"    title="">&nbsp;Gallery</a></div>
-      <div><a class="a-noborder menu-box-style fas fa-wifi"                 href="#bottom-footer-design" title="">&nbsp;Ping</a></div>
+      <div><a class="a-noborder menu-mr menu-box-style fas fa-home fa-fw" style="color: #e2a7f2; font-size: 2.1vw; font-weight: bold;"   href="index.html"     title="">&nbsp;Home</a></div>    
+      <div><a class="a-noborder menu-mr menu-box-style fas fa-book fa-fw" style="color: #e2a7f2; font-size: 2.1vw; font-weight: bold;"   href="ha-blogs.html"  title="">&nbsp;Blogs</a></div>
+      <div><a class="a-noborder menu-mr menu-box-style fas fa-images fa-fw" style="color: #e2a7f2; font-size: 2.1vw; font-weight: bold;"  href="ha-grid.html"    title="">&nbsp;Gallery</a></div>
+      <div><a class="a-noborder menu-box-style fas fa-wifi" style="margin-left:10%; color: #e2a7f2; font-size: 2.1vw; font-weight: bold;" href="#bottom-footer-design" title="">&nbsp;Ping</a></div>
+      <div class="menu-box-bio">
+           <span style="font-weight: normal; display: flex; flex-flow: flex-flow:column wrap;">
+                 <a class="a-noborder fa fa-paint-brush" style="color: slateblue;" href="ha-bio.html" title=""></a>
+           </span>
+           <span style="">
+                 <a class="a-noborder fa fa-sticky-note" style="color: #e2a7f2;" href="ha-bio.html" title=""></a>
+           </span>
+           <span>
+                 <a class="a-noborder" style="color: #e2a7f2; font-size: 2.1vw; font-weight: bold;" href="ha-bio.html" title="">Bio</a>
+           </span>
+      </div>
   </div>
-
 
 <!----------------------------------------------------------------------->
 <!--------------------------  PHOTO GRID  ------------------------------->
 <!----------------------------------------------------------------------->
 <!----------------------------------------------------------------------->
-<div class="pixrow"> 
+<div class="pixrowbio"> 
 
-    <div class="pixheader">
-         <h1>HavAnuArt's Gallery</h1>
+    <div class="pixheaderbio">
+         <h1>Artists Bio</h1>
     </div>
 
 <!----------------------------------------------------------------------->
@@ -1913,6 +2191,33 @@ function loadGalleryPix(rl_picIDX, lg_colPix)
 </div>    <!--  END of class="pixrow"  -->
 
 
+<!--                                       PAGE CENTER                                         -->
+<!--                                       PAGE CENTER                                         -->
+<!--                                       PAGE CENTER                                         -->
+<!--                                       PAGE CENTER                                         -->
+
+<!--
+<div class="drop-down-category">
+     <div >
+          <form>
+                 <select id="dropdowncat" size="1" onchange="returnCategory()">
+                 </select>
+          </form>
+          
+     </div>
+ 
+     <div>
+          <form>          
+                 <select id="dropdownsubcat" size="1" onchange="returnSubCategory();">
+                 </select>
+          </form>
+          
+     </div>
+</div>
+-->
+<div class="page-center">
+
+</div>              <!-- END div class="page-center"      -->
 
 <!--                                       FOOTER                                         -->
 <!--                                       FOOTER                                         -->
@@ -1920,54 +2225,25 @@ function loadGalleryPix(rl_picIDX, lg_colPix)
 <!--                                       FOOTER                                         -->
 
 
-<div id="bottom-footer-id" style="margin-top: 30%;">
 
-     <div class="org-NameMotoFooter" style="position:relative;">
-          <img src="havanuart-logo.jpg" width="420" height="140" alt="HavAnuArt">
-          <div style="position:relative;">
-               <a href="https://instagram.com/havanuart"><img src="instagram-logo.jpg" alt="Havanuart@Instagram" style="width:42px;height:42px;margin-right:2%;"></a> 
-               <a href="https://twitter.com/havanuart"><img src="twitter-logo.jpg" alt="Havanuart@Twitter" style="width:42px;height:42px;"></a>
-                    <!--
-                    <span class="share-contactus" style="margin-left: 40%;">Designed by </span>
-                    <span class="org-NameFooter"><a href="https://www.hapslab.com">Hapslab<sup class="micro-display">&copy;</sup></a></span>
-                    <span class="org-MotoFooter">Data products play<sup class="micro-display-tm">&trade;</sup></span> 
-                    -->
+     <div class="org-NameMotoFooter">
+
+          <a href="https://havanuart.github.io"><img class="org-NameMotoFooter-img" src="havanuart-footer.jpg" width="250" height="100" alt="HavAnuArt"></a>
+
+          <div class="org-NameMotoFooter-contactus">
+               <a href="https://instagram.com/havanuart"><img class="org-NameMotoFooter-img" src="instagram-logo.jpg" alt="Havanuart@Instagram" width="80" height="80"></a>
+               <a href="https://twitter.com/havanuart"><img class="org-NameMotoFooter-img" src="twitter-logo.jpg" alt="Havanuart@Twitter" width="90" height="90"></a>
+               <a href="https://www.linkedin.com/in/havanuart"><img class="org-NameMotoFooter-img" src="linkedin-logo.jpg" alt="Havanuart@Linkedin" width="65" height="65"></a>
+          </div>
+
+          <!-- ADDED 02:51 31-07-2020 for future, class="bottom-footer-design"-->
+          <div id="bottom-footer-design">
+               <span class="org-DesignFooter">Designed by </span>
+               <span class="org-NameFooter"><a href="https://hapslab.github.io">Hapslab<sup class="micro-display">&copy;</sup></a></span>
+               <span class="org-MotoFooter">Data products play<sup class="micro-display-tm">&trade;</sup></span> 
           </div>
 
      </div>
-
-<!--
-              <div style="position:relative; margin-left: 20%;">
-     <div class="bottom-footer-links-class">
-
-         <span><a href="/us/corporate/careers/index.html" data-lbl="careers" title="Careers">Careers</a></span>
-         <span class="share-contactus"><a href="/us/corporate/contact/index.html" data-lbl="contact us" title="Contact Us">Contact Us</a></span>
-         <span class="share-facebook"><a href="/us/social-media/facebook/index.html" data-lbl="facebook" title="Follow Hapslab on Facebook">Facebook</a></span>
-         <span class="share-linkedin"><a href="/us/social-media/linkedin/index.html" data-lbl="linkedIn" title="Follow Hapslab on LinkedIn">LinkedIn</a></span>
-         <span class="share-twitter"><a href="/us/social-media/twitter/index.html" data-lbl="twitter" title="Follow Hapslab on Twitter">Twitter</a></span>
-         <span class="share-googlep"><a href="https://plus.google.com/u/0/115607918987921226255" data-lbl="google plus" target="_blank" title="Follo Hapslab on Google+">Google+</a></span>
-         <span class="share-youtube"><a href="http://www.youtube.com/oracle/" data-lbl="youtube" target="_blank" title="Watch Hapslab on YouTube">YouTube</a></span>
-         <span class="share-youtube"><a href="http://www.youtube.com/oracle/" data-lbl="instagram" target="_blank" title="Follo Hapslab on Instagram">Instagram</a></span>
-         <span><a href="/us/legal/privacy/overview/index.html" data-lbl="mobile" title="Mobile">Mobile</a></span>
-         <span><a href="/us/sitemaps/index.html" data-lbl="site maps" title="Site Maps">Site Maps</a></span>
-         <span><a href="/us/legal/privacy/overview/index.html" data-lbl="legal notices" title="Legal Notices">Legal Notices</a></span>
-         <span><a href="/us/legal/terms/index.html" data-lbl="terms of use" title="Terms Of Use">Terms Of Use</a></span>
-         <span><a href="/us/legal/privacy/overview/index.html" data-lbl="privacy rights" title="Privacy Rights">Privacy</a></span>
-
-     </div>
--->
-
-</div>               <!-- END div class="bottom-footer-id"  -->
-
-
-<!-- ADDED 02:51 31-07-2020 for future -->
-<div class="bottom-footer-design" id="bottom-footer-design">
-     <span class="share-contactus" style="margin-left: 40%;">Designed by </span>
-     <span class="org-NameFooter"><a href="www.hapslab.com">Hapslab<sup class="micro-display">&copy;</sup></a></span>
-     <span class="org-MotoFooter">Data products play<sup class="micro-display-tm">&trade;</sup></span> 
-</div>
-
-
 
 </div>               <!--     END div class="org-ddm"       -->
 

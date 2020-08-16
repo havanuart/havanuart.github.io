@@ -1,0 +1,10 @@
+ReadBioPictureJSONFile([
+{
+"name": "loving_parents_bio_edited.jpg", "title": "Loving parents", "year": "2020", "price": "", "widthpx": "400", "heightpx": "600", "widthinch": "", "heightinch": "", "namepage": "", "categorypage": "", "category": "", "subcategory": "", "context": "parents marriage anniversary", "locationbased": "", "locationmade": "bangalore", "desc": "Had a habit of making greeting cards every year on any occasions for my family, friends and relatives. I used to love experimenting new art techniques and see their reactions." },
+{
+"name": "leonid_afremov_bio_edited.jpg", "title": "Tribute to Leonid Afremov", "year": "2015", "price": "", "widthpx": "400", "heightpx": "600", "widthinch": "", "heightinch": "", "namepage": "", "categorypage": "", "category": "", "subcategory": "", "context": "first canvas painting", "locationbased": "", "locationmade": "bangalore", "desc": "Since my childhood all my art work, cards, sketches, drawings etc came out to be beautiful and people loved it." },
+{
+"name": "blooming_flowers_bio_edited.jpg", "title": "Blooming flowers", "year": "2020", "price": "", "widthpx": "400", "heightpx": "600", "widthinch": "", "heightinch": "", "namepage": "", "categorypage": "", "category": "", "subcategory": "", "context": "different methods of portraying flowers", "locationbased": "", "locationmade": "bangalore", "desc": "Huge canvases were always a fascination for me so I started oil painting. I started with reproducing few of Leonid Afremov's paintings and then made some of mine!" },
+{
+"name": "distraction_bio_edited.jpg", "title": "Distration", "year": "2020", "price": "", "widthpx": "400", "heightpx": "600", "widthinch": "", "heightinch": "", "namepage": "", "categorypage": "", "category": "", "subcategory": "", "context": "learning water coloring", "locationbased": "", "locationmade": "bangalore", "desc": "Have also been making charcoal sketches, mixed medias, coloured drawings and more. And look forward to making tons of these :)" }
+]);
