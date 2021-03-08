@@ -277,10 +277,9 @@ h2, h3
   z-index: 525;
   display: flex;
   flex-flow: row nowrap;
-  left: 35vw; /* old 45% */
+  left: 45%; 
   top: 2%;
-  width: 45%;
-  margin-top: 5vh;
+  width: 42%;
 /*
   border: 1px solid blue; 
 */
@@ -293,7 +292,7 @@ h2, h3
   padding: .35%;               /* width: auto; area of the box */
   border-radius: 5px;
   text-align: center;          /* keeps text inside box centered */
-  margin-right: 5vw;           /* creates right gap between boxes */
+  margin-right: 20%;           /* creates right gap between boxes */
 
 /* STOPPED 12:20 28-05-2020
    border: 1px solid #13133a;    
@@ -317,10 +316,6 @@ h2, h3
    text-shadow: 2px 2px 4px #082b34; 
 }
 
-.menu-box-bio
-{
-margin-left: -12%; display: flex; flex-flow: row;text-shadow: 2px 2px 4px #082b34; font-family: 'Rouge Script', cursive; font-size: 2.1vw; font-weight: bold; color: #e2a7f2;
-}
 
 .drop-down-category
 {
@@ -372,7 +367,7 @@ margin-left: -12%; display: flex; flex-flow: row;text-shadow: 2px 2px 4px #082b3
    background-image:    url(havanuart-logo.jpg); 
    background-repeat:   no-repeat;
    background-position: 100% 0;
-   background-size: contain; /* contain cover orig */
+   background-size: contain; /* cover orig */
 
    max-width: 100%;
    height: 100%;
@@ -903,10 +898,9 @@ margin: 4%;
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 */
 
-                                  /*                   CSS for ha-grid.html                  */
-                                  /*                   CSS for ha-grid.html                  */
-                                  /*                   CSS for ha-grid.html                  */
-                                  /*                   CSS for ha-grid.html                  */
+                                  /*                   CSS for ha-pix.html                  */
+                                  /*                   CSS for ha-pix.html                  */
+                                  /*                   CSS for ha-pix.html                  */
 
 * { box-sizing: border-box; }
 
@@ -915,7 +909,7 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
     pointer-events: none;
 }
 
-.pixheadergrid
+.pixheader 
 {
   text-align: center;
   padding: 32px;
@@ -924,10 +918,29 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
   font-size: 1.5vw;
 }
 
-.pixrowgrid
+.wipborder {
+  border-top: 3px solid rosybrown;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(transparent));
+  background-image: -webkit-linear-gradient(#000, transparent);
+  background-image:
+      -moz-linear-gradient(#000, transparent),
+      -moz-linear-gradient(#000, transparent);
+  background-image:
+      -o-linear-gradient(#000, transparent),
+      -o-linear-gradient(#000, transparent);
+  background-image: 
+      linear-gradient(#000, transparent),
+      linear-gradient(#000, transparent);
+  -moz-background-size: 3px 100%;
+  background-size: 3px 100%;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat; 
+}
+
+.pixrow 
 {
   position: relative;
-  margin-top: 1vw;
+  margin-top: 5vw;
   display: flex;
   flex-flow: row wrap;
   padding: 0 1%;             /* COLUMN space between pictures */
@@ -951,14 +964,14 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
 }
 
                              /* Create four equal columns that sits next to each other */
-.pixcolgrid
+.pixcol 
 {
   flex: 20%;
   max-width: 20%;
   padding: 0 1%;             /* COLUMN space between pictures */
 }
 
-.pixcolimggrid
+.pixcolimg 
 {
   margin-top: 6%;            /* ROW space between pictures */
   vertical-align: middle;
@@ -967,7 +980,7 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
                              /* Responsive layout - makes a two column-layout */
 @media (max-width: 800px) 
 {
-  .pixcolgrid {
+  .pixcol {
     flex: 100%;
     max-width: 100%;
   }
@@ -976,106 +989,16 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
                             /* Responsive layout - makes the two columns stack on top of each other */
 @media (max-width: 600px) 
 {
-  .pixcolgrid {
+  .pixcol {
     flex: 50%;
     max-width: 50%;
   }
 }
 
-
-                                  /*                   CSS for ha-bio.html                  */
-                                  /*                   CSS for ha-bio.html                  */
-                                  /*                   CSS for ha-bio.html                  */
-                                  /*                   CSS for ha-bio.html                  */
-
-.pixheaderbio
-{
-  text-align: center;
-  padding: 32px;
-  color: #a66a6a;
-  font-weight: bold;
-  font-size: 1.5vw;
-}
-
-.pixrowbio
-{
-  position: relative;
-  margin-top: 1vw;
-  display: flex;
-  flex-flow: row wrap;
-  padding: 5vw 5vw;             /* COLUMN space between pictures */
-  max-width: 80%;              /* PLUS or MINUS Picture sizes in the gallery */ 
-  height: auto; /* 16:38 10-08-2020 100vh; */
-
-                             /* ADDs margin to keep the gallery in center of page, rosybrown */
-  margin-left: 25%;     
-  margin-right: 10%; 
-  padding-left: 5%;
-  padding-right: 5%;
-                             /* STOPPED 21:01 15-08-2020 for ha-bio.html page
-                               FAT border on right and left of the Gallery */
-/*
-  border-width: 1.5vw;
-  border-style: solid;
-  border-image:
-    linear-gradient(
-      to bottom, 
-      #d9c0c0, 
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
-*/
-
-}
-
-                             /* Create four equal columns that sits next to each other */
-.pixcolbio
-{
-  flex: 30%;                 /* PLUS or MINUS Picture size along with max-width: in .pixrow */
-  max-width: 30%;            /* PLUS or MINUS Picture size along with max-width: in .pixrow */
-  padding: 0 1%;             /* COLUMN space between pictures */
-}
-
-.pixcolimgbio
-{
-  margin-top: 6%;            /* ROW space between pictures */
-  vertical-align: middle;
-}
-
-                             /* Responsive layout - makes a two column-layout */
-@media (max-width: 800px) 
-{
-  .pixcolbio {
-    flex: 100%;
-    max-width: 100%;
-  }
-}
-
-                            /* Responsive layout - makes the two columns stack on top of each other */
-@media (max-width: 600px) 
-{
-  .pixcolbio {
-    flex: 50%;
-    max-width: 50%;
-  }
-}
-
-.pixtextbio
-{
-   position: relative;
-   color: slateblue;             /* #e2a7f2; */
-   font-family: 'Rouge Script', cursive; 
-   font-size: 1.5vw; 
-   font-weight: bold;
-   margin: 5% 0 5%; 
-   text-align: center; 
-   text-shadow: 2px 2px 4px grey; 
-}
-
-
                                   /*                   CSS for ha-blogs.html                  */
                                   /*                   CSS for ha-blogs.html                  */
                                   /*                   CSS for ha-blogs.html                  */
-                                  /*                   CSS for ha-blogs.html                  */
+
 .wipborder {
   border-top: 3px solid rosybrown;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(transparent));
@@ -1097,7 +1020,7 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
 
 
 .bakground {
-  left: 30%;
+  left: 35%;
   width: 40%;
   height: 8%;
   color: rosybrown;  /* original color */
@@ -1422,25 +1345,6 @@ function getSet(value, index, self)
     return self.indexOf(value) === index;
 }
 
-function ReadBioPictureJSONFile(picArray)
-{
-// ReadshowPictureJSONFile is the name of JSON object in file showPicture.js
-// The typeof operator, when used on an array, returns object.
-
-         if (isanArray(picArray))
-         {
-             showPictureJSONArray = picArray;
-//             showPictureJSONArray = picArray.sort();
-         }
-         else
-         {
-            window.alert("ERROR: Not an array");
-         }
-
-// alert(showPictureJSONArray.length);
-}
-
-
 function ReadshowPictureJSONFile(picArray)
 {
 // ReadshowPictureJSONFile is the name of JSON object in file showPicture.js
@@ -1595,13 +1499,9 @@ function hopePixStart()
         function returnSubCategory() 
         {     
                  /*
-                    Returns "current" Category in the drop down menu
+                    Returns current or selected Sub-Category from the drop down menu
                  */
-                 CURRPICCATEGORY = document.getElementById("dropdowncat").value;
 
-                 /*
-                    Returns "selected" Sub-Category from the drop down menu
-                 */
                  selectElement = document.querySelector('#dropdownsubcat'); 
                  CURRPICSUBCATEGORY = selectElement.value; 
                  // window.alert("returnSubCategory(): " + CURRPICCATEGORY + ":: " + CURRPICSUBCATEGORY);
@@ -1704,15 +1604,13 @@ window.alert("LSP IN1: " + l_picarray + ", " + typeof(l_picarray) );
              var rowClass = document.createAttribute("class");
              rowClass.value = "row";
              clearfixDiv.classList.add("clearfix", "row");
-             var pname      = showPictureJSONArray[ls_picIDX].namewmd;
-             var pcurrency  = showPictureJSONArray[ls_picIDX].currency;
-             var pprice     = showPictureJSONArray[ls_picIDX].price;
-             var pwidthpx   = showPictureJSONArray[ls_picIDX].widthpx;
-             var pheightpx  = showPictureJSONArray[ls_picIDX].heightpx;
-             var ptitle     = showPictureJSONArray[ls_picIDX].title;
-             var pdesc      = showPictureJSONArray[ls_picIDX].desc;
-//             var poutput = ls_picIDX + ". " + pname + ", " + pwidthpx + ", " + pheightpx + ".<br><br>" + ptitle + ".";
-             var poutput    = ptitle;
+             var pname   = showPictureJSONArray[ls_picIDX].namewmd;
+             var pwidth  = showPictureJSONArray[ls_picIDX].width;
+             var pheight = showPictureJSONArray[ls_picIDX].height;
+             var ptitle  = showPictureJSONArray[ls_picIDX].title;
+             var pdesc   = showPictureJSONArray[ls_picIDX].desc;
+//             var poutput = ls_picIDX + ". " + pname + ", " + pwidth + ", " + pheight + ".<br><br>" + ptitle + ".";
+             var poutput = ptitle;
              clearfixDiv.innerHTML = poutput;
 //             clearfixDiv.style.backgroundColor = "ivory";
              document.getElementsByClassName("page-center")[0].appendChild(clearfixDiv); 
@@ -1722,8 +1620,8 @@ window.alert("LSP IN1: " + l_picarray + ", " + typeof(l_picarray) );
 		imgContainerClass.value = "imgcontainer";
 		imgContainerDiv.classList.add("imgcontainer");
 		imgContainerDiv.setAttribute("src",    pname);
-		imgContainerDiv.setAttribute("width",  pwidthpx);
-		imgContainerDiv.setAttribute("height", pheightpx);
+		imgContainerDiv.setAttribute("width",  pwidth);
+		imgContainerDiv.setAttribute("height", pheight);
 		imgContainerDiv.setAttribute("alt",    ptitle);
 		document.getElementsByClassName("clearfix")[loopIdx].appendChild(imgContainerDiv);
 
@@ -1741,79 +1639,8 @@ window.alert("LSP IN1: " + l_picarray + ", " + typeof(l_picarray) );
 }
 
 
-                                  /*                   Javascript for ha-grid.html                  */
-                                  /*                   Javascript for ha-grid.html                  */
-                                  /*                   Javascript for ha-grid.html                  */
-                                  /*                   Javascript for ha-grid.html                  */
-// const NUMBEROFCOLUMNS = 4;
+const NUMBEROFCOLUMNS = 4;
 function hopeLoadPixGrid()
-{
-         var picArrayLen = showPictureJSONArray.length;
-//         window.alert(picArrayLen);
-//         getNumberType('30');
-// for loop till 32 at 32 add ot the div, 
-         var colPix = Math.floor(picArrayLen / NUMBEROFCOLUMNS);
-         var nXtra = picArrayLen % NUMBEROFCOLUMNS;
-//         window.alert('HLP: '+ colPix + ' - ' + nXtra);
-         RUNloadGalleryPixGrid(NUMBEROFCOLUMNS, colPix);
-}
-
-
-function RUNloadGalleryPixGrid(rl_numCols, rl_colPix)
-{
-//         window.alert(rl_numCols + ' - ' + rl_colPix);
-         var rl_picIDX;
-         for (rl_picIDX = 0; rl_picIDX < rl_numCols; rl_picIDX++)
-         {
-//              window.alert('RLG: '+ rl_picIDX + ' - ' + rl_colPix);
-              loadGalleryPixGrid(rl_picIDX, rl_colPix);
-         }
-}
-
-
-function loadGalleryPixGrid(rl_picIDX, lg_colPix)
-{
-         var lg_picIDX;
-         var curr_picIDX;
-         for (lg_picIDX = 0; lg_picIDX < lg_colPix; lg_picIDX++)
-         {
-              curr_picIDX = lg_picIDX + (rl_picIDX * lg_colPix);
-// window.alert('loadGalleryPix: rl_picIDX: '+ rl_picIDX + ' ,lg_colPix: ' + lg_colPix + ' ,lg_picIDX: ' + lg_picIDX + ' ,curr_picIDX: ' + curr_picIDX + ' - ' + showPictureJSONArray[curr_picIDX].namewmd);
-
-              var pixcolDiv = document.createElement('div');
-              pixcolDiv.id = "pixcolgridid";
-              var pixcolClass = document.createAttribute("class");
-              pixcolClass.value = "pixcolgrid";
-              pixcolDiv.classList.add("pixcolgrid");
-              var pname   = showPictureJSONArray[curr_picIDX].namecmp;
-              var pwidthpx  = "100%";
-//              var ptitle  = showPictureJSONArray[curr_picIDX].title;
-//              var poutput = curr_picIDX + ". " + ptitle;
-//              var poutput = ptitle;
-//              pixcolDiv.innerHTML = poutput;
-
-              document.getElementsByClassName("pixrowgrid")[0].appendChild(pixcolDiv); 
-
-		var imgContainerDiv = document.createElement('img');
-		var imgContainerClass = document.createAttribute("class");
-		imgContainerClass.value = "pixcolimggrid";
-		imgContainerDiv.classList.add("pixcolimggrid");
-		imgContainerDiv.setAttribute("src",    pname);
-		imgContainerDiv.setAttribute("width",  pwidthpx);
-//		imgContainerDiv.setAttribute("alt",    ptitle);
-                
-                document.getElementsByClassName("pixcolgrid")[curr_picIDX].appendChild(imgContainerDiv);
-
-         }
-}
-
-
-                                  /*                   Javascript for ha-bio.html                  */
-                                  /*                   Javascript for ha-bio.html                  */
-                                  /*                   Javascript for ha-bio.html                  */
-                                  /*                   Javascript for ha-bio.html                  */
-const NUMBEROFCOLUMNS = 2;
-function hopeLoadPixBio()
 {
          var picArrayLen = showPictureJSONArray.length;
 //         window.alert(picArrayLen);
@@ -1825,36 +1652,21 @@ function hopeLoadPixBio()
          RUNloadGalleryPix(NUMBEROFCOLUMNS, colPix);
 }
 
-function hopeLoadPixBio()
-{
-         var picArrayLen = showPictureJSONArray.length;
-//         window.alert(picArrayLen);
-//         getNumberType('30');
-// for loop till 32 at 32 add ot the div, 
-         var colPix = Math.floor(picArrayLen / NUMBEROFCOLUMNS);
-         var nXtra = picArrayLen % NUMBEROFCOLUMNS;
-//         window.alert('HLP: '+ colPix + ' - ' + nXtra);
-         RUNloadGalleryPixBio(NUMBEROFCOLUMNS, colPix);
-}
 
-
-function RUNloadGalleryPixBio(rl_numCols, rl_colPix)
+function RUNloadGalleryPix(rl_numCols, rl_colPix)
 {
 //         window.alert(rl_numCols + ' - ' + rl_colPix);
          var rl_picIDX;
          for (rl_picIDX = 0; rl_picIDX < rl_numCols; rl_picIDX++)
          {
 //              window.alert('RLG: '+ rl_picIDX + ' - ' + rl_colPix);
-              loadGalleryPixBio(rl_picIDX, rl_colPix);
+              loadGalleryPix(rl_picIDX, rl_colPix);
          }
 }
 
 
-function loadGalleryPixBio(rl_picIDX, lg_colPix)
+function loadGalleryPix(rl_picIDX, lg_colPix)
 {
-
-         var l_poutput = "";
-         var l_toutput = "";         
          var lg_picIDX;
          var curr_picIDX;
          for (lg_picIDX = 0; lg_picIDX < lg_colPix; lg_picIDX++)
@@ -1862,54 +1674,32 @@ function loadGalleryPixBio(rl_picIDX, lg_colPix)
               curr_picIDX = lg_picIDX + (rl_picIDX * lg_colPix);
 // window.alert('loadGalleryPix: rl_picIDX: '+ rl_picIDX + ' ,lg_colPix: ' + lg_colPix + ' ,lg_picIDX: ' + lg_picIDX + ' ,curr_picIDX: ' + curr_picIDX + ' - ' + showPictureJSONArray[curr_picIDX].namewmd);
 
-              var pixtextDiv = document.getElementById("pixtextbio");   
-
-              var pixcolDiv  = document.createElement('div');
-              pixcolDiv.id   = "pixcolbioid";
+              var pixcolDiv = document.createElement('div');
+              pixcolDiv.id = "pixcolid";
               var pixcolClass = document.createAttribute("class");
-              pixcolClass.value = "pixcolbio";
-              pixcolDiv.classList.add("pixcolbio");
-//
-// CHANGED: 20:57 15-08-2020
-// from .namecmp => .name
-//
-              var pname   = showPictureJSONArray[curr_picIDX].name;
-              var pwidthpx  = "100%";
+              pixcolClass.value = "pixcol";
+              pixcolDiv.classList.add("pixcol");
+              var pname   = showPictureJSONArray[curr_picIDX].namecmp;
+              var pwidth  = "100%";
 //              var ptitle  = showPictureJSONArray[curr_picIDX].title;
 //              var poutput = curr_picIDX + ". " + ptitle;
 //              var poutput = ptitle;
 //              pixcolDiv.innerHTML = poutput;
-              var pdesc  = showPictureJSONArray[curr_picIDX].desc;
 
-
-              document.getElementsByClassName("pixrowbio")[0].appendChild(pixcolDiv); 
+              document.getElementsByClassName("pixrow")[0].appendChild(pixcolDiv); 
 
 		var imgContainerDiv = document.createElement('img');
 		var imgContainerClass = document.createAttribute("class");
-		imgContainerClass.value = "pixcolimgbio";
-		imgContainerDiv.classList.add("pixcolimgbio");
+		imgContainerClass.value = "pixcolimg";
+		imgContainerDiv.classList.add("pixcolimg");
 		imgContainerDiv.setAttribute("src",    pname);
-		imgContainerDiv.setAttribute("width",  pwidthpx);
+		imgContainerDiv.setAttribute("width",  pwidth);
 //		imgContainerDiv.setAttribute("alt",    ptitle);
                 
+                document.getElementsByClassName("pixcol")[curr_picIDX].appendChild(imgContainerDiv);
 
-                l_toutput = l_toutput + " " + pdesc;
-                document.getElementsByClassName("pixcolbio")[curr_picIDX].appendChild(imgContainerDiv);
          }
-//                var prevInnerHTML = document.getElementById("pixtextbio").innerHTML;
-//                pixtextDiv.innerHTML = prevInnerHTML + " <br> " + l_toutput ;     
-
-//                var pixtextDiv = document.getElementById("pixtextbio");   
-                var para = document.createElement("P");
-                var paraClass = document.createAttribute("class");
-                paraClass.value = "pixtextbio";
-                para.classList.add("pixtextbio");
-
-                var paraText = document.createTextNode(l_toutput);
-                para.appendChild(paraText);
-              document.getElementsByClassName("pixrowbio")[0].appendChild(para);      
 }
-
 
 </script>
 
@@ -1918,13 +1708,12 @@ function loadGalleryPixBio(rl_picIDX, lg_colPix)
 <!--                  Using JSON Function files feature of JavaScript                 -->
 <!--                  Using JSON Function files feature of JavaScript                 -->
 
-<script src="haBioPictures.js"></script> 
+<script src="hashowPicture.js"></script> 
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
 
-<body onload="hopeLoadPixBio();">
-
+<body onload="hopeLoadPixGrid();">
 
 
 <!--                                       PAGE HEADER                                         -->
@@ -2149,29 +1938,23 @@ function loadGalleryPixBio(rl_picIDX, lg_colPix)
 
 </div>    <!-- END of div class="org-NameMotoHeader" -->
 
-<!--
-      <div style="margin-left: -15%; display: flex; flex-flow: row;text-shadow: 2px 2px 4px #082b34; font-family: 'Rouge Script', cursive; font-size: 2.1vw; font-weight: bold; color: #e2a7f2;">
-                 <a class="a-noborder fa fa-paint-brush" style="color: #e2a7f2;"  href="ha-bio.html" title=""></a>
-                 <a class="a-noborder fa fa-sticky-note" style="color: #e2a7f2;" href="ha-bio.html" title="">Bio</a>
-           <span style="display: flex; flex-flow: flex-flow:column wrap;">
--->
 
   <div class="menu-box-container">
-      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="index.html"     title="">Home</a></div>    
-      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="ha-blogs.html"  title="">Blogs</a></div>
-      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="ha-grid.html"    title="">Gallery</a></div>
-      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="#bottom-footer-design" title="">Ping</a></div>
-      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="ha-bio.html" title="">Bio</a></div>
+      <div><a class="a-noborder menu-mr menu-box-style fas fa-home fa-fw"   href="index.html"     title="">&nbsp;Home</a></div>    
+      <div><a class="a-noborder menu-mr menu-box-style fas fa-book fa-fw"   href="ha-blogs.html"  title="">&nbsp;Blogs</a></div>
+      <div><a class="a-noborder menu-mr menu-box-style fas fa-images fa-fw" href="ha-pix.html"    title="">&nbsp;Gallery</a></div>
+      <div><a class="a-noborder menu-box-style fas fa-wifi"                 href="#bottom-footer-design" title="">&nbsp;Ping</a></div>
   </div>
+
 
 <!----------------------------------------------------------------------->
 <!--------------------------  PHOTO GRID  ------------------------------->
 <!----------------------------------------------------------------------->
 <!----------------------------------------------------------------------->
-<div class="pixrowbio"> 
+<div class="pixrow"> 
 
-    <div class="pixheaderbio">
-         <h1>Artists Bio</h1>
+    <div class="pixheader">
+         <h1>HavAnuArt Gallery</h1>
     </div>
 
 <!----------------------------------------------------------------------->
@@ -2206,6 +1989,7 @@ function loadGalleryPixBio(rl_picIDX, lg_colPix)
      </div>
 </div>
 -->
+
 <div class="page-center">
 
 </div>              <!-- END div class="page-center"      -->

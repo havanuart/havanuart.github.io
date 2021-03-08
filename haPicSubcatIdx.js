@@ -9,5 +9,12 @@ ReadPicSubcatIdxJSONFile([
  {  "category" : "oil charcoal" , "subcategory" : "mixed media" , "picarray" : ["18"] }, 
  {  "category" : "oil painting" , "subcategory" : "scenary" , "picarray" : ["22"] }, 
  {  "category" : "charcoal" , "subcategory" : "marine" , "picarray" : ["23"] }, 
- {  "category" : "charcoal" , "subcategory" : "pet animal" , "picarray" : ["24", "26"] } 
+ {  "category" : "charcoal" , "subcategory" : "pet animal" , "picarray" : ["24", "26"] }, 
+ {  "category" : "watercolor" , "subcategory" : "botanical" , "picarray" : ["28", "31"] }, 
+ {  "category" : "pencil sketch" , "subcategory" : "botanical" , "picarray" : ["29"] }, 
+ {  "category" : "watercolor" , "subcategory" : "zoological" , "picarray" : ["30"] }, 
+ {  "category" : "watercolor" , "subcategory" : "landscape" , "picarray" : ["32", "34"] }, 
+ {  "category" : "pencil sketch" , "subcategory" : "human anatomy" , "picarray" : ["33"] }, 
+ {  "category" : "pencil sketch" , "subcategory" : "portrait" , "picarray" : ["35"] }, 
+ {  "category" : "watercolor" , "subcategory" : "food" , "picarray" : ["36"] } 
 ]);

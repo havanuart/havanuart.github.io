@@ -280,6 +280,7 @@ h2, h3
   left: 35%; /* old 45% */
   top: 2%;
   width: 45%;
+  margin-top: 5vh;
 /*
   border: 1px solid blue; 
 */
@@ -292,7 +293,7 @@ h2, h3
   padding: .35%;               /* width: auto; area of the box */
   border-radius: 5px;
   text-align: center;          /* keeps text inside box centered */
-  margin-right: 20%;           /* creates right gap between boxes */
+  margin-right: 5vw;           /* creates right gap between boxes */
 
 /* STOPPED 12:20 28-05-2020
    border: 1px solid #13133a;    
@@ -335,7 +336,7 @@ margin-left: -12%; display: flex; flex-flow: row;text-shadow: 2px 2px 4px #082b3
    flex-flow: row nowrap; 
    justify-content: space-around;
    font-weight: normal;
-   font-size: 1.2vw;
+   font-size: 1.8vw;
 }
 
 
@@ -949,6 +950,13 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
     ) 1 100%;
 }
 
+
+.pixcolgrid:hover 
+{
+  -ms-transform: scale(3); /* IE 9 */
+  -webkit-transform: scale(3); /* Safari 3-8 */
+  transform: scale(3); 
+}
                              /* Create four equal columns that sits next to each other */
 .pixcolgrid
 {
@@ -1041,7 +1049,6 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
 }
 
                              /* Responsive layout - makes a two column-layout */
-
 @media (max-width: 800px) 
 {
   .pixcolbio {
@@ -1058,7 +1065,6 @@ img                  /* ADDED 02:03 29-07-2020, for restricting image downloads 
     max-width: 50%;
   }
 }
-
 
 .pixtextbio
 {
@@ -1249,7 +1255,7 @@ function hopePixStartOld()
 
 
          picJSONFileLine++;
-         var picURL      = "url(" + showPictureJSONArray[picIDX].namewmd + ")";
+         var picURL      = "url(" + showPictureJSONArray[picIDX].name + ")";
          document.getElementById("display-picture-id").style.backgroundImage = picURL;
          var tempText    = showPictureJSONArray[picIDX].desc;
          var origText    = tempText.trim();
@@ -1567,6 +1573,8 @@ function hopePixStart()
                  var CURRPICCATEGORYIDX = document.getElementById("dropdowncat").selectedIndex;
                  PICSUBCATEGORY = getSubCategory(showCatSubcatJSONArray, CURRPICCATEGORYIDX);
 
+                 // window.alert("returnCategory IN1: CURRPICCATEGORY  " + CURRPICCATEGORY );
+
                  /*
                     Remove ALL Sub-Categories from the drop down menu
                  */
@@ -1649,7 +1657,7 @@ function hopePixStart()
 
 
                  var mlen = document.getElementsByClassName("page-center")[0].length;
-         // window.alert("B4 Calling: RUN LSP: " + CURRPICCATEGORYSUBCATEGORYARRAY + ", " + mlen);
+         // window.alert("B4 Calling: RUN LSP: " + CURRPICCATEGORY + ", " + CURRPICSUBCATEGORY);
          RUNloadSelectedPix(CURRPICCATEGORY, CURRPICSUBCATEGORY); 
 
          }
@@ -1662,7 +1670,7 @@ function RUNloadSelectedPix(dd_Cat, dd_Subcat)
          var picCatSubcatIdxArrayLen = showCatSubcatIdxJSONArray.length;
          var rl_picIDX;
 
-//         for (l_picIDX < picCatSubcatIdxArrayLen)
+         // window.alert("RLSP IN12: " + dd_Cat + ", " + dd_Subcat );
          for (rl_picIDX = 0; rl_picIDX < picCatSubcatIdxArrayLen; rl_picIDX++)
          {
               l_Cat      = showCatSubcatIdxJSONArray[rl_picIDX].category;
@@ -1670,19 +1678,22 @@ function RUNloadSelectedPix(dd_Cat, dd_Subcat)
 
               if ( (l_Cat === dd_Cat) && (l_Subcat === dd_Subcat) ) 
               {
-                CURRPICCATEGORYSUBCATEGORYARRAY = showCatSubcatIdxJSONArray[rl_picIDX].picarray;
-                // window.alert(" B4R BREAK Calling: LSP: " + CURRPICCATEGORYSUBCATEGORYARRAY);
+                 // window.alert("RLSP IN3: l_Cat, dd_Cat, l_Subcat, dd_Subcat" + l_Cat +", "+ dd_Cat +", "+ l_Subcat +", "+ dd_Subcat);                
+                 CURRPICCATEGORYSUBCATEGORYARRAY = showCatSubcatIdxJSONArray[rl_picIDX].picarray;
+                 // window.alert("RLSP IN3: " + CURRPICCATEGORYSUBCATEGORYARRAY );
+                 // window.alert(" B4R BREAK Calling: LSP: " + CURRPICCATEGORYSUBCATEGORYARRAY);
                 break;
               }
          }
          // window.alert("AFT BREAK Calling: LSP: " + CURRPICCATEGORYSUBCATEGORYARRAY);
+         // window.alert("RLSP IN4: " + CURRPICCATEGORYSUBCATEGORYARRAY );
          loadSelectedPix(CURRPICCATEGORYSUBCATEGORYARRAY);
 }
 
 function loadSelectedPix(l_picarray)
 {
-// window.alert("LSP IN1: " + l_picarray  );
 /*
+window.alert("LSP IN1: " + l_picarray  );
 window.alert("LSP IN1: " + l_picarray + ", " + typeof(l_picarray) );
          for (l_picIDX = 0; l_picIDX < picArrayLen; l_picIDX++)
          var selPixArray = ["1","3","4","9"];
@@ -1705,7 +1716,7 @@ window.alert("LSP IN1: " + l_picarray + ", " + typeof(l_picarray) );
              var rowClass = document.createAttribute("class");
              rowClass.value = "row";
              clearfixDiv.classList.add("clearfix", "row");
-             var pname      = showPictureJSONArray[ls_picIDX].namewmd;
+             var pname      = showPictureJSONArray[ls_picIDX].name;
              var pcurrency  = showPictureJSONArray[ls_picIDX].currency;
              var pprice     = showPictureJSONArray[ls_picIDX].price;
              var pwidthpx   = showPictureJSONArray[ls_picIDX].widthpx;
@@ -1920,11 +1931,13 @@ function loadGalleryPixBio(rl_picIDX, lg_colPix)
 <!--                  Using JSON Function files feature of JavaScript                 -->
 
 <script src="hashowPictures.js"></script> 
+<script src="haPicCatSubcat.js"></script>
+<script src="haPicSubcatIdx.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
 
-<body onload="hopeLoadPixGrid();">
+<body onload="hopePixStart(); initDropDownCategory(); initDropDownSubCategory();">
 
 
 
@@ -2158,48 +2171,19 @@ function loadGalleryPixBio(rl_picIDX, lg_colPix)
 -->
 
   <div class="menu-box-container">
-      <div><a class="a-noborder menu-mr menu-box-style fas fa-home fa-fw" style="color: #e2a7f2; font-size: 2.1vw; font-weight: bold;"   href="index.html"     title="">&nbsp;Home</a></div>    
-      <div><a class="a-noborder menu-mr menu-box-style fas fa-book fa-fw" style="color: #e2a7f2; font-size: 2.1vw; font-weight: bold;"   href="ha-blogs.html"  title="">&nbsp;Blogs</a></div>
-      <div><a class="a-noborder menu-mr menu-box-style fas fa-images fa-fw" style="color: #e2a7f2; font-size: 2.1vw; font-weight: bold;"  href="ha-grid.html"    title="">&nbsp;Gallery</a></div>
-      <div><a class="a-noborder menu-box-style fas fa-wifi" style="margin-left:10%; color: #e2a7f2; font-size: 2.1vw; font-weight: bold;" href="#bottom-footer-design" title="">&nbsp;Ping</a></div>
-      <div class="menu-box-bio">
-           <span style="font-weight: normal; display: flex; flex-flow: flex-flow:column wrap;">
-                 <a class="a-noborder fa fa-paint-brush" style="color: slateblue;" href="ha-bio.html" title=""></a>
-           </span>
-           <span style="">
-                 <a class="a-noborder fa fa-sticky-note" style="color: #e2a7f2;" href="ha-bio.html" title=""></a>
-           </span>
-           <span>
-                 <a class="a-noborder" style="color: #e2a7f2; font-size: 2.1vw; font-weight: bold;" href="ha-bio.html" title="">Bio</a>
-           </span>
-      </div>
+      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="index.html"     title="">Home</a></div>    
+      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="ha-blogs.html"  title="">Blogs</a></div>
+      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="ha-grid.html"    title="">Gallery</a></div>
+      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="#bottom-footer-design" title="">Ping</a></div>
+      <div><a class="a-noborder menu-mr menu-box-style" style="color: #e2a7f2; font-size: 3vw; font-weight: bold;" href="ha-bio.html" title="">Bio</a></div>
   </div>
 
-<!----------------------------------------------------------------------->
-<!--------------------------  PHOTO GRID  ------------------------------->
-<!----------------------------------------------------------------------->
-<!----------------------------------------------------------------------->
-<div class="pixrowgrid"> 
-
-    <div class="pixheadergrid">
-         <h1>HavAnuArt Gallery</h1>
-    </div>
-
-
-<!----------------------------------------------------------------------->
-<!-------------------------  PHOTO COLUMNS  ----------------------------->
-<!-----------------------  div class="pixcol"  -------------------------->
-<!----------  created via javascript function called onload  ------------>
-
-</div>    <!--  END of class="pixrow"  -->
-
-
 <!--                                       PAGE CENTER                                         -->
 <!--                                       PAGE CENTER                                         -->
 <!--                                       PAGE CENTER                                         -->
 <!--                                       PAGE CENTER                                         -->
 
-<!--
+
 <div class="drop-down-category">
      <div >
           <form>
@@ -2217,8 +2201,6 @@ function loadGalleryPixBio(rl_picIDX, lg_colPix)
           
      </div>
 </div>
--->
-
 
 
 <div class="page-center">
